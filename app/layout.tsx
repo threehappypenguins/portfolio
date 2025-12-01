@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Arimo } from "next/font/google";
-import Link from "next/link";
 import { ThemeProvider } from "./theme-provider";
-import { ThemeToggle } from "./components/theme-toggle";
 import { Navbar } from "./components/navbar";
 import "./globals.css";
 
