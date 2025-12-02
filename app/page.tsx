@@ -1,7 +1,64 @@
+import { IconBrandGithub, IconMail } from "@tabler/icons-react";
+
+// Lucide React brand icons are deprecated and I didn't like Tabler's LinkedIn
+const IconBrandLinkedin = ({ size = 20, className = "" }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect x="2" y="9" width="4" height="12" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
 export default function Home() {
   return (
-    <div>
+    <main>
       <h1>Hi, I'm Sarah!</h1>
-    </div>
+
+      <p>
+        Full Stack Developer | Tech Aficionado | Problem Solver | Curious Mind
+      </p>
+
+      <p>
+        I love tech, and I enjoy problem-solving. I have an engineering-type
+        mind and am particularly good at understanding how things work, and
+        implementing creative solutions.
+      </p>
+
+      <div className="flex flex-wrap gap-4 justify-center">
+        <div className="social-button-group">
+          <button
+            type="button"
+            className="px-4 py-2 bg-button-secondary-bg border border-button-secondary-border hover:bg-button-secondary-hover text-button-secondary-text font-medium rounded-lg transition-colors duration-200 whitespace-nowrap flex items-center justify-center gap-4"
+          >
+            <IconBrandLinkedin size={20} />
+            View LinkedIn
+          </button>
+          <button
+            type="button"
+            className="px-4 py-2 bg-button-primary-bg hover:bg-button-primary-hover text-button-primary-text font-medium rounded-lg transition-colors duration-200 whitespace-nowrap flex items-center justify-center gap-4"
+          >
+            <IconMail size={20} />
+            Email
+          </button>
+          <button
+            type="button"
+            className="px-4 py-2 bg-button-secondary-bg border border-button-secondary-border hover:bg-button-secondary-hover text-button-secondary-text font-medium rounded-lg transition-colors duration-200 whitespace-nowrap flex items-center justify-center gap-4"
+          >
+            <IconBrandGithub size={20} />
+            View GitHub
+          </button>
+        </div>
+      </div>
+    </main>
   );
 }
