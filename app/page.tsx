@@ -1,4 +1,5 @@
 import { IconBrandGithub, IconMail } from "@tabler/icons-react";
+import Image from "next/image";
 
 // Lucide React brand icons are deprecated and I didn't like Tabler's LinkedIn
 const IconBrandLinkedin = ({ size = 20, className = "" }) => (
@@ -21,42 +22,53 @@ const IconBrandLinkedin = ({ size = 20, className = "" }) => (
 
 export default function Home() {
   return (
-    <main>
-      <h1>Hi, I'm Sarah!</h1>
+    <main className="min-h-screen flex items-center justify-center p-4">
+      <div className="w-full max-w-2/3 space-y-7">
+        <Image
+          src="/logo.png"
+          alt="Gear logo"
+          width={128}
+          height={128}
+          priority
+          className="mx-auto"
+        />
 
-      <p>
-        Full Stack Developer | Tech Aficionado | Problem Solver | Curious Mind
-      </p>
+        <h1>Hi, I'm Sarah!</h1>
 
-      <p>
-        I love tech, and I enjoy problem-solving. I have an engineering-type
-        mind and am particularly good at understanding how things work, and
-        implementing creative solutions.
-      </p>
+        <p className="text-2xl text-center">
+          Full Stack Developer | Tech Aficionado | Problem Solver | Curious Mind
+        </p>
 
-      <div className="flex flex-wrap gap-4 justify-center">
-        <div className="social-button-group">
-          <button
-            type="button"
-            className="px-4 py-2 bg-button-secondary-bg border border-button-secondary-border hover:bg-button-secondary-hover text-button-secondary-text font-medium rounded-lg transition-colors duration-200 whitespace-nowrap flex items-center justify-center gap-4"
-          >
-            <IconBrandLinkedin size={20} />
-            View LinkedIn
-          </button>
-          <button
-            type="button"
-            className="px-4 py-2 bg-button-primary-bg hover:bg-button-primary-hover text-button-primary-text font-medium rounded-lg transition-colors duration-200 whitespace-nowrap flex items-center justify-center gap-4"
-          >
-            <IconMail size={20} />
-            Email
-          </button>
-          <button
-            type="button"
-            className="px-4 py-2 bg-button-secondary-bg border border-button-secondary-border hover:bg-button-secondary-hover text-button-secondary-text font-medium rounded-lg transition-colors duration-200 whitespace-nowrap flex items-center justify-center gap-4"
-          >
-            <IconBrandGithub size={20} />
-            View GitHub
-          </button>
+        <p className="text-lg text-center max-w-2xl mx-auto">
+          I love tech, and I enjoy problem-solving. I have an engineering-type
+          mind and am particularly good at understanding how things work, and
+          implementing creative solutions.
+        </p>
+
+        <div className="flex flex-wrap gap-4 justify-center">
+          <div className="social-button-group">
+            <button
+              type="button"
+              className="px-4 py-2 bg-button-secondary-bg border border-button-secondary-border hover:bg-button-secondary-hover text-button-secondary-text font-medium rounded-lg transition-colors duration-200 whitespace-nowrap flex items-center justify-center gap-4"
+            >
+              <IconBrandLinkedin size={20} />
+              View LinkedIn
+            </button>
+            <button
+              type="button"
+              className="px-4 py-2 bg-button-primary-bg hover:bg-button-primary-hover text-button-primary-text font-medium rounded-lg transition-colors duration-200 whitespace-nowrap flex items-center justify-center gap-4"
+            >
+              <IconMail size={20} />
+              Email
+            </button>
+            <button
+              type="button"
+              className="px-4 py-2 bg-button-secondary-bg border border-button-secondary-border hover:bg-button-secondary-hover text-button-secondary-text font-medium rounded-lg transition-colors duration-200 whitespace-nowrap flex items-center justify-center gap-4"
+            >
+              <IconBrandGithub size={20} />
+              View GitHub
+            </button>
+          </div>
         </div>
       </div>
     </main>
