@@ -23,7 +23,7 @@ const IconBrandLinkedin = ({ size = 20, className = "" }) => (
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center p-4">
-      <div className="h-screen flex flex-col items-center justify-center w-full max-w-2/3 space-y-7">
+      <div className="min-h-screen flex flex-col items-center justify-center w-full max-w-4xl px-4 space-y-7 pb-16">
         <Image
           src="/logo.png"
           alt="Gear logo"
@@ -46,7 +46,13 @@ export default function Home() {
         </p>
 
         <div className="flex flex-wrap gap-4 justify-center">
-          <div className="social-button-group">
+          <div
+            className="
+              w-full
+              flex flex-col gap-4 items-stretch
+              md:grid md:grid-flow-col md:auto-cols-fr md:w-fit
+            "
+          >
             <a
               href="https://www.linkedin.com/in/sarahpoulin/"
               target="_blank"
@@ -81,7 +87,9 @@ export default function Home() {
       <div className="space-y-4">
         <h2>Portfolio</h2>
 
-        <p className="text-lg text-center">A timeline of my recent work and accomplishments</p>
+        <p className="text-lg text-center">
+          A timeline of my recent work and accomplishments
+        </p>
       </div>
     </main>
   );
