@@ -61,6 +61,11 @@ h1 {
   color: transparent;
 }
 
+h2 {
+  @apply text-center w-fit mx-auto text-4xl;
+  color: #3B82F6;
+}
+
 .social-button-group {
   display: grid;
   grid-auto-flow: column;

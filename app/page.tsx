@@ -22,8 +22,8 @@ const IconBrandLinkedin = ({ size = 20, className = "" }) => (
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center p-4">
-      <div className="w-full max-w-2/3 space-y-7">
+    <main className="min-h-screen flex flex-col items-center p-4">
+      <div className="h-screen flex flex-col items-center justify-center w-full max-w-2/3 space-y-7">
         <Image
           src="/logo.png"
           alt="Gear logo"
@@ -77,6 +77,11 @@ export default function Home() {
             </a>
           </div>
         </div>
+      </div>
+      <div className="space-y-4">
+        <h2>Portfolio</h2>
+
+        <p className="text-lg text-center">A timeline of my recent work and accomplishments</p>
       </div>
     </main>
   );
