@@ -47,27 +47,34 @@ export default function Home() {
 
         <div className="flex flex-wrap gap-4 justify-center">
           <div className="social-button-group">
-            <button
-              type="button"
+            <a
+              href="https://www.linkedin.com/in/sarahpoulin/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-4 py-2 bg-button-secondary-bg border border-button-secondary-border hover:bg-button-secondary-hover text-button-secondary-text font-medium rounded-lg transition-colors duration-200 whitespace-nowrap flex items-center justify-center gap-4"
             >
               <IconBrandLinkedin size={20} />
               View LinkedIn
-            </button>
-            <button
-              type="button"
+            </a>
+
+            <a
+              href="mailto:sarah@poulinfam.com"
+              target="_blank"
               className="px-4 py-2 bg-button-primary-bg hover:bg-button-primary-hover text-button-primary-text font-medium rounded-lg transition-colors duration-200 whitespace-nowrap flex items-center justify-center gap-4"
             >
               <IconMail size={20} />
               Email
-            </button>
-            <button
-              type="button"
+            </a>
+
+            <a
+              href="https://github.com/threehappypenguins"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-4 py-2 bg-button-secondary-bg border border-button-secondary-border hover:bg-button-secondary-hover text-button-secondary-text font-medium rounded-lg transition-colors duration-200 whitespace-nowrap flex items-center justify-center gap-4"
             >
               <IconBrandGithub size={20} />
               View GitHub
-            </button>
+            </a>
           </div>
         </div>
       </div>
