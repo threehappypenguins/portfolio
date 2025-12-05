@@ -1,34 +1,34 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F8FAFC;
-  --foreground: #0F172A;
-  --h1: #155DFC;
-  --h1-end: #193CB8;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --h1: #155dfc;
+  --h1-end: #193cb8;
 
   /* Light mode button colors */
-  --button-primary-bg: #1E40AF;
+  --button-primary-bg: #1e40af;
   --button-primary-hover: #1e3a8a;
-  --button-primary-text: #FFFFFF;
-  --button-secondary-bg: #FFFFFF;
+  --button-primary-text: #ffffff;
+  --button-secondary-bg: #ffffff;
   --button-secondary-hover: #e0e3ee;
-  --button-secondary-text: #1E40AF;
-  --button-secondary-border: #1E40AF;
-  }
+  --button-secondary-text: #1e40af;
+  --button-secondary-border: #1e40af;
+}
 
 .dark {
-  --background: #0F172A;
-  --foreground: #F8FAFC;
-  --h1: #51A2FF;
-  --h1-end: #155DFC;
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --h1: #51a2ff;
+  --h1-end: #155dfc;
 
   /* Dark mode button colors */
-  --button-primary-bg: #0950C3;
+  --button-primary-bg: #0950c3;
   --button-primary-hover: #0741a3;
-  --button-primary-text: #FFFFFF;
+  --button-primary-text: #ffffff;
   --button-secondary-bg: rgba(51, 65, 85, 0.3);
   --button-secondary-hover: rgba(51, 65, 85, 0.4);
-  --button-secondary-text: #FFFFFF;
+  --button-secondary-text: #ffffff;
   --button-secondary-border: #334155;
 }
 
@@ -63,13 +63,13 @@ h1 {
 
 h2 {
   @apply text-center w-fit mx-auto text-4xl;
-  color: #3B82F6;
+  color: #3b82f6;
 }
 
-/* .social-button-group {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
-  width: fit-content;
-  gap: 1rem;
-} */
+.social-button-group {
+  @apply flex flex-wrap gap-4 justify-center w-full;
+}
+
+.social-button {
+  @apply min-w-45 px-4 py-2 font-medium rounded-lg transition-colors duration-200 whitespace-nowrap flex items-center justify-center gap-4;
+}
