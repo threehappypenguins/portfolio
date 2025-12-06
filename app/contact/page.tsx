@@ -152,7 +152,7 @@ export default function Contact() {
               </div>
 
               {/* Submit Button */}
-              <button onClick={handleSubmit} className="form-submit-btn">
+              <button onClick={handleSubmit} type="button" className="form-submit-btn">
                 <Send className="w-4 h-4" />
                 Send Message
               </button>
@@ -177,6 +177,7 @@ export default function Contact() {
               </p>
               <div className="flex justify-center">
                 <button
+                  type="button"
                   onClick={() => setShowModal(false)}
                   className="form-submit-btn"
                 >
