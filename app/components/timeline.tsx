@@ -213,6 +213,7 @@ export function Timeline() {
                                 {hasMultipleImages && (
                                   <>
                                     <button
+                                      type="button"
                                       onClick={(e) => {
                                         e.stopPropagation();
                                         prevImage(index, images.length);
@@ -224,6 +225,7 @@ export function Timeline() {
                                     </button>
 
                                     <button
+                                      type="button"
                                       onClick={(e) => {
                                         e.stopPropagation();
                                         nextImage(index, images.length);
@@ -238,6 +240,7 @@ export function Timeline() {
                                     <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
                                       {images.map((_, i) => (
                                         <button
+                                          type="button"
                                           key={i}
                                           onClick={(e) => {
                                             e.stopPropagation();
@@ -292,6 +295,7 @@ export function Timeline() {
           onClick={() => setModalImage(null)}
         >
           <button
+            type="button"
             onClick={() => setModalImage(null)}
             className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full transition-colors z-10"
             aria-label="Close modal"
@@ -303,6 +307,7 @@ export function Timeline() {
           {modalImage.totalImages > 1 && (
             <>
               <button
+                type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                   prevModalImage();
@@ -314,6 +319,7 @@ export function Timeline() {
               </button>
 
               <button
+                type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                   nextModalImage();
