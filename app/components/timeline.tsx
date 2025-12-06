@@ -37,8 +37,7 @@ export function Timeline() {
   const prevImage = (itemIndex: number, totalImages: number) => {
     setCurrentImageIndex((prev) => ({
       ...prev,
-      [itemIndex]:
-        ((prev[itemIndex] || 0) - 1 + totalImages) % totalImages,
+      [itemIndex]: ((prev[itemIndex] || 0) - 1 + totalImages) % totalImages,
     }));
   };
 
@@ -46,7 +45,11 @@ export function Timeline() {
     return currentImageIndex[itemIndex] || 0;
   };
 
-  const openModal = (itemIndex: number, imageIndex: number, images: TimelineItem['richContent']['images']) => {
+  const openModal = (
+    itemIndex: number,
+    imageIndex: number,
+    images: TimelineItem["richContent"]["images"]
+  ) => {
     if (!images || images.length === 0) return;
     setModalImage({
       ...images[imageIndex],
@@ -61,7 +64,7 @@ export function Timeline() {
     const item = timelineData[modalImage.itemIndex];
     const images = item.richContent.images;
     if (!images) return;
-    
+
     const newIndex = (modalImage.imageIndex + 1) % images.length;
     setModalImage({
       ...images[newIndex],
@@ -76,8 +79,9 @@ export function Timeline() {
     const item = timelineData[modalImage.itemIndex];
     const images = item.richContent.images;
     if (!images) return;
-    
-    const newIndex = (modalImage.imageIndex - 1 + images.length) % images.length;
+
+    const newIndex =
+      (modalImage.imageIndex - 1 + images.length) % images.length;
     setModalImage({
       ...images[newIndex],
       itemIndex: modalImage.itemIndex,
@@ -91,7 +95,8 @@ export function Timeline() {
       <div className="w-full max-w-3xl mx-auto py-12">
         <div className="space-y-0">
           {timelineData.map((item, index) => {
-            const hasMultipleImages = item.richContent.images && item.richContent.images.length > 1;
+            const hasMultipleImages =
+              item.richContent.images && item.richContent.images.length > 1;
             const images = item.richContent.images || [];
             const currentIdx = getCurrentImageIndex(index);
 
@@ -109,12 +114,12 @@ export function Timeline() {
                     onClick={() => handleClick(index)}
                   >
                     {/* Date */}
-                    <div className="text-2xl text-date-text mb-2 px-4 relative">
+                    <div className="text-lg md:text-2xl text-date-text mb-2 px-4 relative">
                       {item.date}
                     </div>
 
                     {/* Title */}
-                    <div className="text-4xl text-title-text px-4 relative">
+                    <div className="text-2xl md:text-4xl text-title-text px-4 relative">
                       {item.title}
                     </div>
                   </div>
@@ -127,7 +132,7 @@ export function Timeline() {
                         : "max-h-0 opacity-0"
                     }`}
                   >
-                    <div className="text-portfolio-text max-w-2xl mx-auto px-8 pb-6 text-left relative">
+                    <div className="text-portfolio-text max-w-2xl mx-auto px-2 pb-6 text-left relative">
                       <div className="space-y-4">
                         {/* Description */}
                         {item.richContent.description && (
