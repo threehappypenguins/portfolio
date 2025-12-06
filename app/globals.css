@@ -3,10 +3,16 @@
 :root {
   --background: #f8fafc;
   --foreground: #0f172a;
-  --gradient-bg: linear-gradient(150deg, #E5F0FF 0%, #FFFFFF 30%, #E5F0FF 60%, #FFFFFF 100%);
+  --gradient-bg: linear-gradient(
+    150deg,
+    #e5f0ff 0%,
+    #ffffff 30%,
+    #e5f0ff 60%,
+    #ffffff 100%
+  );
   --h1: #155dfc;
   --h1-end: #193cb8;
-  --h2: #1E40AF;
+  --h2: #1e40af;
   --about-paragraph: #475569;
 
   /* Light mode button colours */
@@ -17,37 +23,46 @@
   --button-secondary-hover: #e0e3ee;
   --button-secondary-text: #1e40af;
   --button-secondary-border: #1e40af;
-  --about-tech-btn: #DBEAFE;
-  --about-tech-btn-hover: #D6E7FE;
-  --about-tech-btn-font: #193CB8;
+  --about-tech-btn: #dbeafe;
+  --about-tech-btn-hover: #d6e7fe;
+  --about-tech-btn-font: #193cb8;
 
   /* Light mode timeline colours */
-  --dot-bg: #1E40AF;
-  --dot-border: #F8FAFC;
-  --line-bg: #BEDBFF;
+  --dot-bg: #1e40af;
+  --dot-border: #f8fafc;
+  --line-bg: #bedbff;
   --date-text: rgba(59, 130, 246, 0.8);
-  --title-text: #1E40AF;
+  --title-text: #1e40af;
   --portfolio-text: #475569;
-  --technologies-btn: #E5E7EB;
+  --technologies-btn: #e5e7eb;
   --technologies-btn-font: #1f1e2a;
 
   /* Light mode About cards */
-  --card-bg: #FFFFFF;
-  --card-title-text: #0F172A;
+  --card-bg: #ffffff;
+  --card-title-text: #0f172a;
   --card-text: #475569;
-  --card-icon-bg: #DBEAFE;
-  --card-icon: #1E40AF;
-  --card-border: #DBEAFE;
+  --card-icon-bg: #dbeafe;
+  --card-icon: #1e40af;
+  --card-border: #dbeafe;
+  --card-form-input: #f1f5f9;
+  --card-form-input-border: #bedbff;
+  --card-form-input-text: black;
 }
 
 .dark {
   --background: #0f172a;
   --foreground: #f8fafc;
-  --gradient-bg: linear-gradient(150deg, #0F172B 0%, #1D293D 30%, #0F172B 60%, #1D293D 100%);
+  --gradient-bg: linear-gradient(
+    150deg,
+    #0f172b 0%,
+    #1d293d 30%,
+    #0f172b 60%,
+    #1d293d 100%
+  );
   --h1: #51a2ff;
   --h1-end: #155dfc;
-  --h2: #3B82F6;
-  --about-paragraph: #97A4BA;
+  --h2: #3b82f6;
+  --about-paragraph: #97a4ba;
 
   /* Dark mode button colours */
   --button-primary-bg: #0950c3;
@@ -58,26 +73,29 @@
   --button-secondary-text: #ffffff;
   --button-secondary-border: #334155;
   --about-tech-btn: rgba(28, 57, 142, 0.3);
-  --about-tech-btn-hover: #1C2F69;
-  --about-tech-btn-font: #8EC5FF;
+  --about-tech-btn-hover: #1c2f69;
+  --about-tech-btn-font: #8ec5ff;
 
   /* Dark mode timeline colours */
-  --dot-bg: #3B82F6;
-  --dot-border: #0F172A;
-  --line-bg: #193CB8;
+  --dot-bg: #3b82f6;
+  --dot-border: #0f172a;
+  --line-bg: #193cb8;
   --date-text: rgba(59, 130, 246, 0.8);
-  --title-text: #3B82F6;
-  --portfolio-text: #94A3B8;
+  --title-text: #3b82f6;
+  --portfolio-text: #94a3b8;
   --technologies-btn: #364153;
-  --technologies-btn-font: #E5E7EB;
+  --technologies-btn-font: #e5e7eb;
 
   /* Dark mode About cards */
-  --card-bg: #1E293B;
-  --card-title-text: #F8FAFC;
-  --card-text: #94A3B8;
+  --card-bg: #1e293b;
+  --card-title-text: #f8fafc;
+  --card-text: #94a3b8;
   --card-icon-bg: rgba(28, 57, 142, 0.3);
-  --card-icon: #3B82F6;
-  --card-border: #335CD7;
+  --card-icon: #3b82f6;
+  --card-border: #335cd7;
+  --card-form-input: rgba(51, 65, 85, 0.3);
+  --card-form-input-border: #bedbff;
+  --card-form-input-text: white;
 }
 
 @theme inline {
@@ -112,6 +130,9 @@
   --color-card-icon-bg: var(--card-icon-bg);
   --color-card-icon: var(--card-icon);
   --color-card-border: var(--card-border);
+  --color-card-form-input: var(--card-form-input);
+  --color-card-form-input-border: var(--card-form-input-border);
+  --color-card-form-input-text: var(--card-form-input-text);
 }
 
 body {
@@ -189,6 +210,16 @@ h3 {
 
 .about-tech-btn {
   @apply text-xs px-4 py-2 bg-about-tech-btn hover:bg-about-tech-btn-hover text-about-tech-btn-font rounded-lg;
+}
+
+/* Form */
+
+.form-input {
+  @apply w-full bg-card-form-input border border-card-form-input-border rounded-lg px-4 py-3 text-card-form-input-text placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors;
+}
+
+.form-submit-btn {
+  @apply w-full sm:w-auto bg-button-primary-bg hover:bg-button-primary-hover text-button-primary-text font-medium px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition-colors;
 }
 
 /* Footer */
