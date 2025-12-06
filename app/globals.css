@@ -3,6 +3,7 @@
 :root {
   --background: #f8fafc;
   --foreground: #0f172a;
+  --gradient-bg: linear-gradient(150deg, #E5F0FF 0%, #FFFFFF 30%, #E5F0FF 60%, #FFFFFF 100%);
   --h1: #155dfc;
   --h1-end: #193cb8;
   --h2: #1E40AF;
@@ -30,6 +31,7 @@
 .dark {
   --background: #0f172a;
   --foreground: #f8fafc;
+  --gradient-bg: linear-gradient(150deg, #0F172B 0%, #1D293D 30%, #0F172B 60%, #1D293D 100%);
   --h1: #51a2ff;
   --h1-end: #155dfc;
   --h2: #3B82F6;
@@ -57,6 +59,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-gradient-bg: var(--gradient-bg);
   --color-h1: var(--h1);
   --color-h2: var(--h2);
   --color-h1-end: var(--h1-end);
@@ -81,6 +84,10 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-arimo);
+}
+
+.bg-gradient-bg {
+  background-image: var(--gradient-bg);
 }
 
 h1 {

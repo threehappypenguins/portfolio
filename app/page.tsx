@@ -23,8 +23,8 @@ const IconBrandLinkedin = ({ size = 20, className = "" }) => (
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center p-4">
-      <div className="min-h-screen flex flex-col items-center justify-center w-full max-w-4xl px-4 space-y-7 pb-16">
+    <main className="min-h-screen flex flex-col items-center p-4 bg-gradient-bg">
+      <div className="min-h-screen flex flex-col items-center justify-center w-full max-w-4xl px-4 space-y-7 pb-16" >
         <Image
           src="/logo.png"
           alt="Gear logo"
