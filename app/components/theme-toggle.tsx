@@ -46,7 +46,7 @@ export function ThemeToggle() {
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 rounded-md hover:bg-foreground/10 transition-colors"
+        className="p-3 rounded-md border border-foreground/20 hover:bg-foreground/10 hover:border-foreground/40 transition-colors"
         aria-label="Toggle theme menu"
       >
         {theme === "light" ? (
