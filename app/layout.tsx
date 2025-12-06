@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Arimo } from "next/font/google";
 import { ThemeProvider } from "./theme-provider";
 import { Navbar } from "./components/navbar";
+import { Footer } from "./components/footer";
 import "./globals.css";
 
 const arimo = Arimo({
@@ -36,6 +37,7 @@ export default function RootLayout({
         <ThemeProvider>
           <Navbar />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
