@@ -4,12 +4,27 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
+import { usePathname } from "next/navigation";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
+
+  const handlePortfolioClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // If we're on the home page, scroll to portfolio section
+    if (pathname === "/") {
+      e.preventDefault();
+      const portfolioSection = document.querySelector("h2");
+      if (portfolioSection) {
+        portfolioSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      closeMenu();
+    }
+    // Otherwise, let the Link navigate normally to "/"
+  };
 
   return (
     <nav className="bg-background border-b border-foreground/10">
@@ -26,9 +41,10 @@ export function Navbar() {
           <div className="hidden md:flex md:items-center md:space-x-8">
             <Link
               href="/"
+              onClick={handlePortfolioClick}
               className="hover:text-foreground/70 transition-colors"
             >
-              Projects
+              Portfolio
             </Link>
             <Link
               href="/about"
@@ -65,10 +81,10 @@ export function Navbar() {
           <div className="px-4 pt-2 pb-4 space-y-3">
             <Link
               href="/"
+              onClick={handlePortfolioClick}
               className="block py-2 hover:text-foreground/70 transition-colors"
-              onClick={closeMenu}
             >
-              Projects
+              Portfolio
             </Link>
             <Link
               href="/about"

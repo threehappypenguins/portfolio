@@ -79,10 +79,12 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="space-y-4">
+      <div id="portfolio" className="space-y-4">
         <h2>Portfolio</h2>
 
-        <p className="text-lg text-center text-portfolio-text">A timeline of my work and accomplishments</p>
+        <p className="text-lg text-center text-portfolio-text">
+          A timeline of my work and accomplishments
+        </p>
 
         <Timeline />
       </div>
