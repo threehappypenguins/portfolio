@@ -27,7 +27,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="bg-background border-b border-foreground/10">
+    <nav className="sticky top-0 z-50 bg-background/30 backdrop-blur-md border-b border-foreground/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo/Name */}
@@ -77,7 +77,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden border-t border-foreground/10">
+        <div className="md:hidden border-t border-foreground/10 bg-background/30 backdrop-blur-md">
           <div className="px-4 pt-2 pb-4 space-y-3">
             <Link
               href="/"
