@@ -148,7 +148,7 @@ body {
 /* Headers */
 
 h1 {
-  @apply text-center w-fit mx-auto text-6xl;
+  @apply text-center w-fit mx-auto text-4xl md:text-6xl;
   background-image: linear-gradient(to right, var(--h1), var(--h1-end));
   -webkit-background-clip: text;
   background-clip: text;
@@ -157,7 +157,7 @@ h1 {
 }
 
 h2 {
-  @apply text-center w-fit mx-auto text-4xl;
+  @apply text-center w-fit mx-auto text-3xl md:text-4xl;
   color: var(--h2);
 }
 

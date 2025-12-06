@@ -18,7 +18,7 @@ export default function Home() {
 
         <h1>Hi, I'm Sarah!</h1>
 
-        <p className="text-2xl text-center">
+        <p className="text-xl md:text-2xl text-center">
           Full Stack Developer | Tech Aficionado | Problem Solver | Curious Mind
         </p>
 
