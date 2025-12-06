@@ -5,8 +5,9 @@
   --foreground: #0f172a;
   --h1: #155dfc;
   --h1-end: #193cb8;
+  --h2: #1E40AF;
 
-  /* Light mode button colors */
+  /* Light mode button colours */
   --button-primary-bg: #1e40af;
   --button-primary-hover: #1e3a8a;
   --button-primary-text: #ffffff;
@@ -14,6 +15,16 @@
   --button-secondary-hover: #e0e3ee;
   --button-secondary-text: #1e40af;
   --button-secondary-border: #1e40af;
+
+  /* Light mode timeline colours */
+  --dot-bg: #1E40AF;
+  --dot-border: #F8FAFC;
+  --line-bg: #BEDBFF;
+  --date-text: rgba(59, 130, 246, 0.8);
+  --title-text: #1E40AF;
+  --portfolio-text: #475569;
+  --technologies-btn: #E5E7EB;
+  --technologies-btn-font: #1f1e2a;
 }
 
 .dark {
@@ -21,8 +32,9 @@
   --foreground: #f8fafc;
   --h1: #51a2ff;
   --h1-end: #155dfc;
+  --h2: #3B82F6;
 
-  /* Dark mode button colors */
+  /* Dark mode button colours */
   --button-primary-bg: #0950c3;
   --button-primary-hover: #0741a3;
   --button-primary-text: #ffffff;
@@ -30,12 +42,23 @@
   --button-secondary-hover: rgba(51, 65, 85, 0.4);
   --button-secondary-text: #ffffff;
   --button-secondary-border: #334155;
+
+  /* Dark mode timeline colours */
+  --dot-bg: #3B82F6;
+  --dot-border: #0F172A;
+  --line-bg: #193CB8;
+  --date-text: rgba(59, 130, 246, 0.8);
+  --title-text: #3B82F6;
+  --portfolio-text: #94A3B8;
+  --technologies-btn: #364153;
+  --technologies-btn-font: #E5E7EB;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-h1: var(--h1);
+  --color-h2: var(--h2);
   --color-h1-end: var(--h1-end);
   --color-button-primary-bg: var(--button-primary-bg);
   --color-button-primary-hover: var(--button-primary-hover);
@@ -44,6 +67,14 @@
   --color-button-secondary-hover: var(--button-secondary-hover);
   --color-button-secondary-text: var(--button-secondary-text);
   --color-button-secondary-border: var(--button-secondary-border);
+  --color-portfolio-text: var(--portfolio-text);
+  --color-technologies-btn: var(--technologies-btn);
+  --color-technologies-btn-font: var(--technologies-btn-font);
+  --color-dot-bg: var(--dot-bg);
+  --color-dot-border: var(--dot-border);
+  --color-date-text: var(--date-text);
+  --color-title-text: var(--title-text);
+  --color-line-bg: var(--line-bg);
 }
 
 body {
@@ -63,7 +94,7 @@ h1 {
 
 h2 {
   @apply text-center w-fit mx-auto text-4xl;
-  color: #3b82f6;
+  color: var(--h2);
 }
 
 .social-button-group {

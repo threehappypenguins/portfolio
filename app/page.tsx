@@ -1,5 +1,6 @@
 import { IconBrandGithub, IconMail } from "@tabler/icons-react";
 import Image from "next/image";
+import { Timeline } from "./components/timeline";
 
 // Lucide React brand icons are deprecated and I didn't like Tabler's LinkedIn
 const IconBrandLinkedin = ({ size = 20, className = "" }) => (
@@ -51,7 +52,7 @@ export default function Home() {
               href="https://www.linkedin.com/in/sarahpoulin/"
               target="_blank"
               rel="noopener noreferrer"
-              className="social-button bg-button-primary-bg hover:bg-button-primary-hover text-button-primary-text"
+              className="social-button bg-button-secondary-bg border border-button-secondary-border hover:bg-button-secondary-hover text-button-secondary-text"
             >
               <IconBrandLinkedin size={20} />
               View LinkedIn
@@ -60,7 +61,7 @@ export default function Home() {
             <a
               href="mailto:sarah@poulinfam.com"
               target="_blank"
-              className="social-button bg-button-secondary-bg border border-button-secondary-border hover:bg-button-secondary-hover text-button-secondary-text"
+              className="social-button bg-button-primary-bg hover:bg-button-primary-hover text-button-primary-text"
             >
               <IconMail size={20} />
               Email
@@ -81,7 +82,9 @@ export default function Home() {
       <div className="space-y-4">
         <h2>Portfolio</h2>
 
-        <p className="text-lg text-center">A timeline of my recent work and accomplishments</p>
+        <p className="text-lg text-center text-portfolio-text">A timeline of my work and accomplishments</p>
+
+        <Timeline />
       </div>
     </main>
   );
