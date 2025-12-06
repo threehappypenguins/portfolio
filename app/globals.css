@@ -7,6 +7,7 @@
   --h1: #155dfc;
   --h1-end: #193cb8;
   --h2: #1E40AF;
+  --about-paragraph: #475569;
 
   /* Light mode button colours */
   --button-primary-bg: #1e40af;
@@ -16,6 +17,9 @@
   --button-secondary-hover: #e0e3ee;
   --button-secondary-text: #1e40af;
   --button-secondary-border: #1e40af;
+  --about-tech-btn: #DBEAFE;
+  --about-tech-btn-hover: #D6E7FE;
+  --about-tech-btn-font: #193CB8;
 
   /* Light mode timeline colours */
   --dot-bg: #1E40AF;
@@ -26,6 +30,14 @@
   --portfolio-text: #475569;
   --technologies-btn: #E5E7EB;
   --technologies-btn-font: #1f1e2a;
+
+  /* Light mode About cards */
+  --card-bg: #FFFFFF;
+  --card-title-text: #0F172A;
+  --card-text: #475569;
+  --card-icon-bg: #DBEAFE;
+  --card-icon: #1E40AF;
+  --card-border: #DBEAFE;
 }
 
 .dark {
@@ -35,6 +47,7 @@
   --h1: #51a2ff;
   --h1-end: #155dfc;
   --h2: #3B82F6;
+  --about-paragraph: #97A4BA;
 
   /* Dark mode button colours */
   --button-primary-bg: #0950c3;
@@ -44,6 +57,9 @@
   --button-secondary-hover: rgba(51, 65, 85, 0.4);
   --button-secondary-text: #ffffff;
   --button-secondary-border: #334155;
+  --about-tech-btn: rgba(28, 57, 142, 0.3);
+  --about-tech-btn-hover: #1C2F69;
+  --about-tech-btn-font: #8EC5FF;
 
   /* Dark mode timeline colours */
   --dot-bg: #3B82F6;
@@ -54,6 +70,14 @@
   --portfolio-text: #94A3B8;
   --technologies-btn: #364153;
   --technologies-btn-font: #E5E7EB;
+
+  /* Dark mode About cards */
+  --card-bg: #1E293B;
+  --card-title-text: #F8FAFC;
+  --card-text: #94A3B8;
+  --card-icon-bg: rgba(28, 57, 142, 0.3);
+  --card-icon: #3B82F6;
+  --card-border: #335CD7;
 }
 
 @theme inline {
@@ -63,6 +87,7 @@
   --color-h1: var(--h1);
   --color-h2: var(--h2);
   --color-h1-end: var(--h1-end);
+  --color-about-paragraph: var(--about-paragraph);
   --color-button-primary-bg: var(--button-primary-bg);
   --color-button-primary-hover: var(--button-primary-hover);
   --color-button-primary-text: var(--button-primary-text);
@@ -73,11 +98,20 @@
   --color-portfolio-text: var(--portfolio-text);
   --color-technologies-btn: var(--technologies-btn);
   --color-technologies-btn-font: var(--technologies-btn-font);
+  --color-about-tech-btn: var(--about-tech-btn);
+  --color-about-tech-btn-hover: var(--about-tech-btn-hover);
+  --color-about-tech-btn-font: var(--about-tech-btn-font);
   --color-dot-bg: var(--dot-bg);
   --color-dot-border: var(--dot-border);
   --color-date-text: var(--date-text);
   --color-title-text: var(--title-text);
   --color-line-bg: var(--line-bg);
+  --color-card-bg: var(--card-bg);
+  --color-card-title-text: var(--card-title-text);
+  --color-card-text: var(--card-text);
+  --color-card-icon-bg: var(--card-icon-bg);
+  --color-card-icon: var(--card-icon);
+  --color-card-border: var(--card-border);
 }
 
 body {
@@ -89,6 +123,8 @@ body {
 .bg-gradient-bg {
   background-image: var(--gradient-bg);
 }
+
+/* Headers */
 
 h1 {
   @apply text-center w-fit mx-auto text-6xl;
@@ -104,6 +140,13 @@ h2 {
   color: var(--h2);
 }
 
+h3 {
+  @apply text-2xl pb-6;
+  color: var(--h2);
+}
+
+/* Social Buttons */
+
 .social-button-group {
   @apply flex flex-wrap gap-4 justify-center w-full;
 }
@@ -111,6 +154,44 @@ h2 {
 .social-button {
   @apply min-w-45 px-4 py-2 font-medium rounded-lg transition-colors duration-200 whitespace-nowrap flex items-center justify-center gap-4;
 }
+
+/* About Cards */
+
+.about-paragraph {
+  color: var(--about-paragraph);
+}
+
+.about-card-container {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl pb-16;
+}
+
+.about-card {
+  @apply border border-card-border rounded-lg p-6 bg-card-bg flex gap-4;
+}
+
+.about-card-icon-container {
+  @apply shrink-0 w-12 h-12 rounded-lg bg-card-icon-bg flex items-center justify-center;
+}
+
+.about-card-icon {
+  @apply w-6 h-6 text-card-icon;
+}
+
+.about-card-title {
+  @apply text-card-title-text mb-2;
+}
+
+.about-card-text {
+  @apply text-sm text-card-text;
+}
+
+/* About Technologies Buttons */
+
+.about-tech-btn {
+  @apply text-xs px-4 py-2 bg-about-tech-btn hover:bg-about-tech-btn-hover text-about-tech-btn-font rounded-lg;
+}
+
+/* Footer */
 
 footer {
   background-color: #0f172a;
