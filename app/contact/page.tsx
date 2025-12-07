@@ -11,6 +11,7 @@ export default function Contact() {
     message: "",
   });
   const [showModal, setShowModal] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -21,11 +22,48 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = () => {
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    // Add email service integration here
-    setShowModal(true);
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          replyto: formData.email,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        console.log("Form submitted successfully:", result);
+        setShowModal(true);
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        console.error("Form submission failed:", result);
+        alert("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("An error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -92,6 +130,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Your name"
                     className="form-input"
+                    required
                   />
                 </div>
                 <div>
@@ -109,6 +148,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="your.email@example.com"
                     className="form-input"
+                    required
                   />
                 </div>
               </div>
@@ -129,6 +169,7 @@ export default function Contact() {
                   onChange={handleChange}
                   placeholder="What's this about?"
                   className="form-input"
+                  required
                 />
               </div>
 
@@ -148,13 +189,19 @@ export default function Contact() {
                   placeholder="Your message here..."
                   rows={5}
                   className="form-input resize-none"
+                  required
                 />
               </div>
 
               {/* Submit Button */}
-              <button onClick={handleSubmit} type="button" className="form-submit-btn">
+              <button 
+                type="button"
+                onClick={handleSubmit} 
+                className="form-submit-btn"
+                disabled={isSubmitting}
+              >
                 <Send className="w-4 h-4" />
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </div>
           </div>
