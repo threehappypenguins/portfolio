@@ -1,28 +1,86 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 import { Mail, MapPin, Send } from "lucide-react";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 export default function Contact() {
+  const { theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
+  const [captchaToken, setCaptchaToken] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({
+    name: false,
+    email: false,
+    subject: false,
+    message: false,
+    captcha: false,
+  });
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+    // Clear error when user starts typing
+    if (errors[name as keyof typeof errors]) {
+      setErrors({
+        ...errors,
+        [name]: false,
+      });
+    }
+  };
+
+  const onHCaptchaChange = (token: string) => {
+    setCaptchaToken(token);
+    // Clear captcha error when verified
+    if (errors.captcha) {
+      setErrors({
+        ...errors,
+        captcha: false,
+      });
+    }
   };
 
   const handleSubmit = async () => {
+    // Validate all fields
+    const newErrors = {
+      name: !formData.name.trim(),
+      email: !formData.email.trim() || !formData.email.includes("@"),
+      subject: !formData.subject.trim(),
+      message: !formData.message.trim(),
+      captcha: !captchaToken,
+    };
+
+    setErrors(newErrors);
+
+    // Check if there are any errors
+    if (Object.values(newErrors).some((error) => error)) {
+      // Scroll to first error
+      const firstError = Object.keys(newErrors).find(
+        (key) => newErrors[key as keyof typeof newErrors]
+      );
+      if (firstError) {
+        document.getElementById(firstError)?.focus();
+      }
+      return;
+    }
+
     setIsSubmitting(true);
     
     try {
@@ -39,6 +97,7 @@ export default function Contact() {
           subject: formData.subject,
           message: formData.message,
           replyto: formData.email,
+          "h-captcha-response": captchaToken,
         }),
       });
 
@@ -53,6 +112,14 @@ export default function Contact() {
           email: "",
           subject: "",
           message: "",
+        });
+        setCaptchaToken("");
+        setErrors({
+          name: false,
+          email: false,
+          subject: false,
+          message: false,
+          captcha: false,
         });
       } else {
         console.error("Form submission failed:", result);
@@ -129,9 +196,14 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your name"
-                    className="form-input"
+                    className={`form-input ${
+                      errors.name ? "border-red-500 focus:border-red-500" : ""
+                    }`}
                     required
                   />
+                  {errors.name && (
+                    <p className="text-red-500 text-sm mt-1">Name is required</p>
+                  )}
                 </div>
                 <div>
                   <label
@@ -147,9 +219,16 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="your.email@example.com"
-                    className="form-input"
+                    className={`form-input ${
+                      errors.email ? "border-red-500 focus:border-red-500" : ""
+                    }`}
                     required
                   />
+                  {errors.email && (
+                    <p className="text-red-500 text-sm mt-1">
+                      Valid email is required
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -168,9 +247,16 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="What's this about?"
-                  className="form-input"
+                  className={`form-input ${
+                    errors.subject ? "border-red-500 focus:border-red-500" : ""
+                  }`}
                   required
                 />
+                {errors.subject && (
+                  <p className="text-red-500 text-sm mt-1">
+                    Subject is required
+                  </p>
+                )}
               </div>
 
               {/* Message */}
@@ -188,9 +274,34 @@ export default function Contact() {
                   onChange={handleChange}
                   placeholder="Your message here..."
                   rows={5}
-                  className="form-input resize-none"
+                  className={`form-input resize-none ${
+                    errors.message ? "border-red-500 focus:border-red-500" : ""
+                  }`}
                   required
                 />
+                {errors.message && (
+                  <p className="text-red-500 text-sm mt-1">
+                    Message is required
+                  </p>
+                )}
+              </div>
+
+              {/* hCaptcha */}
+              <div>
+                {mounted && (
+                  <HCaptcha
+                    sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+                    onVerify={onHCaptchaChange}
+                    reCaptchaCompat={false}
+                    theme={resolvedTheme === "dark" ? "dark" : "light"}
+                    size="normal"
+                  />
+                )}
+                {errors.captcha && (
+                  <p className="text-red-500 text-sm mt-2">
+                    Please complete the captcha
+                  </p>
+                )}
               </div>
 
               {/* Submit Button */}
