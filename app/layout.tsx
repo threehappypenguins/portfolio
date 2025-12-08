@@ -12,6 +12,7 @@ const arimo = Arimo({
 });
 
 export const metadata: Metadata = {
+  manifest: '/manifest.json',
   title: "Sarah Poulin",
   description:
     "Welcome to my portfolio. Check out my latest projects! | Full Stack Dev",
