@@ -14,6 +14,7 @@
   --h1-end: #193cb8;
   --h2: #1e40af;
   --about-paragraph: #475569;
+  --focus-ring: #0f172a;
 
   /* Light mode button colours */
   --button-primary-bg: #1e40af;
@@ -63,6 +64,7 @@
   --h1-end: #155dfc;
   --h2: #3b82f6;
   --about-paragraph: #97a4ba;
+  --focus-ring: #f8fafc;
 
   /* Dark mode button colours */
   --button-primary-bg: #0950c3;
@@ -106,6 +108,7 @@
   --color-h2: var(--h2);
   --color-h1-end: var(--h1-end);
   --color-about-paragraph: var(--about-paragraph);
+  --color-focus-ring: var(--focus-ring);
   --color-button-primary-bg: var(--button-primary-bg);
   --color-button-primary-hover: var(--button-primary-hover);
   --color-button-primary-text: var(--button-primary-text);
@@ -208,7 +211,7 @@ h3 {
 
 /* Focus ring (for keyboard nav) */
 .focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-white;
+  @apply focus:outline-none focus:ring-2 focus:ring-focus-ring;
 }
 
 /* About Technologies Buttons */
