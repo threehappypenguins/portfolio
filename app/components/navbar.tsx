@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
+import { ResumeToggle } from "./resume-toggle";
 import { usePathname } from "next/navigation";
 
 export function Navbar() {
@@ -58,11 +59,13 @@ export function Navbar() {
             >
               Contact
             </Link>
+            <ResumeToggle />
             <ThemeToggle />
           </div>
 
           {/* Mobile menu button and theme toggle */}
           <div className="md:hidden flex items-center gap-2">
+            <ResumeToggle />
             <ThemeToggle />
             <button
               onClick={toggleMenu}
