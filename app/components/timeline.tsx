@@ -158,7 +158,7 @@ export function Timeline() {
                     ref={(el) => {
                       contentRefs.current[index] = el;
                     }}
-                    className="pt-6 pb-1 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg"
+                    className="pt-6 pb-1 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 rounded-lg"
                     onClick={() => handleClick(index)}
                     onKeyDown={(e) => handleKeyDown(e, index)}
                     tabIndex={0}
