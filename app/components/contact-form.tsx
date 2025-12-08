@@ -8,6 +8,9 @@ import HCaptcha from "@hcaptcha/react-hcaptcha";
 export default function ContactForm() {
   const { theme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [captchaSize, setCaptchaSize] = useState<"normal" | "compact">(
+    "compact"
+  );
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,6 +30,17 @@ export default function ContactForm() {
 
   useEffect(() => {
     setMounted(true);
+
+    // Set initial captcha size
+    const updateCaptchaSize = () => {
+      setCaptchaSize(window.innerWidth < 400 ? "compact" : "normal");
+    };
+
+    updateCaptchaSize();
+
+    // Optional: Update on window resize
+    window.addEventListener("resize", updateCaptchaSize);
+    return () => window.removeEventListener("resize", updateCaptchaSize);
   }, []);
 
   const handleChange = (
@@ -82,7 +96,7 @@ export default function ContactForm() {
     }
 
     setIsSubmitting(true);
-    
+
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -210,9 +224,7 @@ export default function ContactForm() {
               required
             />
             {errors.subject && (
-              <p className="text-red-500 text-sm mt-1">
-                Subject is required
-              </p>
+              <p className="text-red-500 text-sm mt-1">Subject is required</p>
             )}
           </div>
 
@@ -237,9 +249,7 @@ export default function ContactForm() {
               required
             />
             {errors.message && (
-              <p className="text-red-500 text-sm mt-1">
-                Message is required
-              </p>
+              <p className="text-red-500 text-sm mt-1">Message is required</p>
             )}
           </div>
 
@@ -251,7 +261,7 @@ export default function ContactForm() {
                 onVerify={onHCaptchaChange}
                 reCaptchaCompat={false}
                 theme={resolvedTheme === "dark" ? "dark" : "light"}
-                size="normal"
+                size={captchaSize}
               />
             )}
             {errors.captcha && (
@@ -262,9 +272,9 @@ export default function ContactForm() {
           </div>
 
           {/* Submit Button */}
-          <button 
+          <button
             type="button"
-            onClick={handleSubmit} 
+            onClick={handleSubmit}
             className="form-submit-btn"
             disabled={isSubmitting}
           >
