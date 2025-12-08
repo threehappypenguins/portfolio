@@ -46,6 +46,7 @@ export function ResumeToggle() {
     <div className="relative" ref={dropdownRef}>
       {/* Toggle Button */}
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
         className="p-3 rounded-md border border-foreground/20 hover:bg-foreground/10 hover:border-foreground/40 transition-colors"
         aria-label="Resume menu"
@@ -61,6 +62,7 @@ export function ResumeToggle() {
           </div>
           <div className="py-1">
             <button
+              type="button"
               onClick={handleView}
               className="w-full px-3 py-2 text-left flex items-center gap-3 hover:bg-foreground/10 transition-colors"
             >
@@ -68,6 +70,7 @@ export function ResumeToggle() {
               <span>View Resume</span>
             </button>
             <button
+              type="button"
               onClick={handleDownload}
               className="w-full px-3 py-2 text-left flex items-center gap-3 hover:bg-foreground/10 transition-colors"
             >

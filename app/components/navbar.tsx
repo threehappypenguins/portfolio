@@ -68,6 +68,7 @@ export function Navbar() {
             <ResumeToggle />
             <ThemeToggle />
             <button
+              type="button"
               onClick={toggleMenu}
               className="p-2 rounded-md hover:bg-foreground/10 transition-colors"
               aria-label="Toggle menu"

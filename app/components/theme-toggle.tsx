@@ -45,6 +45,7 @@ export function ThemeToggle() {
     <div className="relative" ref={dropdownRef}>
       {/* Toggle Button */}
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
         className="p-3 rounded-md border border-foreground/20 hover:bg-foreground/10 hover:border-foreground/40 transition-colors"
         aria-label="Toggle theme menu"
@@ -66,6 +67,7 @@ export function ThemeToggle() {
           </div>
           <div className="py-1">
             <button
+              type="button"
               onClick={() => handleThemeChange("light")}
               className="w-full px-3 py-2 text-left flex items-center justify-between hover:bg-foreground/10 transition-colors"
             >
@@ -76,6 +78,7 @@ export function ThemeToggle() {
               {theme === "light" && <Check size={16} />}
             </button>
             <button
+              type="button"
               onClick={() => handleThemeChange("dark")}
               className="w-full px-3 py-2 text-left flex items-center justify-between hover:bg-foreground/10 transition-colors"
             >
@@ -86,6 +89,7 @@ export function ThemeToggle() {
               {theme === "dark" && <Check size={16} />}
             </button>
             <button
+              type="button"
               onClick={() => handleThemeChange("system")}
               className="w-full px-3 py-2 text-left flex items-center justify-between hover:bg-foreground/10 transition-colors"
             >
