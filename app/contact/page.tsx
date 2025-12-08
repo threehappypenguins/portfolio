@@ -18,7 +18,11 @@ export default function Contact() {
           {/* Left Side - Contact Cards */}
           <div className="space-y-6">
             {/* Email Card */}
-            <div className="bg-card-bg border border-card-border rounded-2xl p-6">
+            <a
+              href="mailto:sarah@poulinfam.com"
+              target="_blank"
+              className="bg-card-bg border border-card-border rounded-2xl p-6 block hover:bg-card-bg/80 hover:border-card-border/80 transition-all"
+            >
               <div className="flex items-start gap-4">
                 <div className="bg-card-icon-bg p-3 rounded-lg">
                   <Mail className="w-5 h-5 text-card-icon" />
@@ -28,22 +32,28 @@ export default function Contact() {
                   <p className="text-card-text">sarah@poulinfam.com</p>
                 </div>
               </div>
-            </div>
+            </a>
 
             {/* Location Card */}
-            <div className="bg-card-bg border border-card-border rounded-2xl p-6">
-              <div className="flex items-start gap-4">
-                <div className="bg-card-icon-bg p-3 rounded-lg">
-                  <MapPin className="w-5 h-5 text-card-icon" />
-                </div>
-                <div>
-                  <h4 className="text-lg text-card-title-text mb-1">
-                    Location
-                  </h4>
-                  <p className="text-card-text">Dartmouth, Nova Scotia</p>
+            <a
+              href="https://maps.app.goo.gl/Vd4ZsmhfUxujmiPE6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="bg-card-bg border border-card-border rounded-2xl p-6 block hover:bg-card-bg/80 hover:border-card-border/80 transition-all">
+                <div className="flex items-start gap-4">
+                  <div className="bg-card-icon-bg p-3 rounded-lg">
+                    <MapPin className="w-5 h-5 text-card-icon" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg text-card-title-text mb-1">
+                      Location
+                    </h4>
+                    <p className="text-card-text">Dartmouth, Nova Scotia</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
 
           {/* Right Side - Contact Form */}
