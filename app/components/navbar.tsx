@@ -18,7 +18,7 @@ export function Navbar() {
     // If we're on the home page, scroll to portfolio section
     if (pathname === "/") {
       e.preventDefault();
-      const portfolioSection = document.querySelector("h2");
+      const portfolioSection = document.getElementById("portfolio");
       if (portfolioSection) {
         portfolioSection.scrollIntoView({ behavior: "smooth", block: "start" });
       }
