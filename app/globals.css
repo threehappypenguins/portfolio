@@ -206,6 +206,11 @@ h3 {
   @apply text-sm text-card-text;
 }
 
+/* Focus ring (for keyboard nav) */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-white;
+}
+
 /* About Technologies Buttons */
 
 .about-tech-btn {

@@ -158,7 +158,7 @@ export function Timeline() {
                     ref={(el) => {
                       contentRefs.current[index] = el;
                     }}
-                    className="pt-6 pb-1 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 rounded-lg"
+                    className="pt-6 pb-1 cursor-pointer focus:focus-ring rounded-lg"
                     onClick={() => handleClick(index)}
                     onKeyDown={(e) => handleKeyDown(e, index)}
                     tabIndex={0}
@@ -238,7 +238,7 @@ export function Timeline() {
                                   href={link.url}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="bg-button-primary-bg hover:bg-button-primary-hover text-button-primary-text px-4 py-2 font-medium rounded-lg transition-colors duration-200 whitespace-nowrap flex items-center justify-center gap-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="bg-button-primary-bg hover:bg-button-primary-hover text-button-primary-text px-4 py-2 font-medium rounded-lg transition-colors duration-200 whitespace-nowrap flex items-center justify-center gap-4 focus:focus-ring"
                                   onClick={(e) => e.stopPropagation()}
                                 >
                                   {link.text}
@@ -258,7 +258,7 @@ export function Timeline() {
                                 >
                                   <button
                                     type="button"
-                                    className="cursor-pointer flex items-center justify-center w-full h-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
+                                    className="cursor-pointer flex items-center justify-center w-full h-full focus:focus-ring"
                                     onClick={() =>
                                       openModal(index, currentIdx, images)
                                     }
@@ -282,7 +282,7 @@ export function Timeline() {
                                           e.stopPropagation();
                                           prevImage(index, images.length);
                                         }}
-                                        className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity duration-200 focus:outline-none focus:ring-2 focus:ring-white"
+                                        className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity duration-200 focus:focus-ring"
                                         aria-label="Previous image"
                                       >
                                         <ChevronLeft className="w-6 h-6" />
@@ -294,7 +294,7 @@ export function Timeline() {
                                           e.stopPropagation();
                                           nextImage(index, images.length);
                                         }}
-                                        className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity duration-200 focus:outline-none focus:ring-2 focus:ring-white"
+                                        className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity duration-200 focus:focus-ring"
                                         aria-label="Next image"
                                       >
                                         <ChevronRight className="w-6 h-6" />
@@ -313,7 +313,7 @@ export function Timeline() {
                                                 [index]: i,
                                               }));
                                             }}
-                                            className={`w-2 h-2 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-white ${
+                                            className={`w-2 h-2 rounded-full transition-all focus:focus-ring ${
                                               currentIdx === i
                                                 ? "bg-white w-6"
                                                 : "bg-white/50"
@@ -367,7 +367,7 @@ export function Timeline() {
           <button
             type="button"
             onClick={() => setModalImage(null)}
-            className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full transition-colors z-10 focus:outline-none focus:ring-2 focus:ring-white"
+            className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full transition-colors z-10 focus:focus-ring"
             aria-label="Close modal"
             autoFocus
           >
@@ -383,7 +383,7 @@ export function Timeline() {
                   e.stopPropagation();
                   prevModalImage();
                 }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-colors z-10 focus:outline-none focus:ring-2 focus:ring-white"
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-colors z-10 focus:focus-ring"
                 aria-label="Previous image"
               >
                 <ChevronLeft className="w-8 h-8" />
@@ -395,7 +395,7 @@ export function Timeline() {
                   e.stopPropagation();
                   nextModalImage();
                 }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-colors z-10 focus:outline-none focus:ring-2 focus:ring-white"
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-colors z-10 focus:focus-ring"
                 aria-label="Next image"
               >
                 <ChevronRight className="w-8 h-8" />
