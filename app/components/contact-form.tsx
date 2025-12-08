@@ -98,6 +98,14 @@ export default function ContactForm() {
     setIsSubmitting(true);
 
     try {
+      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+      if (!accessKey) {
+        console.error("Web3Forms access key is not configured");
+        alert("Form submission is not configured. Please contact the site administrator.");
+        setIsSubmitting(false);
+        return;
+      }
+
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
@@ -105,7 +113,7 @@ export default function ContactForm() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          access_key: accessKey,
           name: formData.name,
           email: formData.email,
           subject: formData.subject,
