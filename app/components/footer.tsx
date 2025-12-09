@@ -41,7 +41,7 @@ export function Footer() {
           </div>
         </div>
         <div className="pt-6 border-t border-gray-700">
-          <p className="text-sm text-gray-500 text-center">
+          <p className="text-sm text-gray-400 text-center">
             © {new Date().getFullYear()} Sarah Poulin
           </p>
         </div>
