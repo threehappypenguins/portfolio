@@ -144,13 +144,7 @@ export const timelineData: TimelineItem[] = [
         "For chats, added title generator (using OpenAI API), tooltip for truncated titles, and made title editable ",
         "Fixed bug in page creation from module page (previously hardcoded to go to blocks page)",
       ],
-      technologies: [
-        "Next.js",
-        "React",
-        "Tailwind",
-        "Supabase",
-        "PostgreSQL",
-      ],
+      technologies: ["Next.js", "React", "Tailwind", "Supabase", "PostgreSQL"],
       images: [
         {
           src: "/portfolio/Retainium-darkmodefix.png",
@@ -175,7 +169,8 @@ export const timelineData: TimelineItem[] = [
         {
           src: "/portfolio/Retainium-titledefault.png",
           alt: "Demonstrating Retainium title hidden by default in formulas",
-          caption: "Formula Title Hidden by Default (showing edit/delete when hovering)",
+          caption:
+            "Formula Title Hidden by Default (showing edit/delete when hovering)",
         },
         {
           src: "/portfolio/Retainium-chattitle1.png",
@@ -234,6 +229,34 @@ export const timelineData: TimelineItem[] = [
         {
           text: "View Project",
           url: "https://github.com/Vertfromage/agenticAIHackathon",
+        },
+      ],
+    },
+  },
+  {
+    date: "Aug 2009 — Present",
+    title: "Childcare & Homeschool Coordinator",
+    richContent: {
+      bullets: [
+        "Home educate my children",
+        "Deployed self-hosted Moodle on Oracle Cloud instance",
+        "Regularly add curriculum content such as lessons and quizzes",
+        "Maintain home NAS (Odroid HC4) on Debian OS",
+        "Deployed NextCloud and Nginx Proxy Manager to securely and automatically back up media from smart phones",
+      ],
+      technologies: [
+        "Moodle",
+        "PHP",
+        "phpMyAdmin",
+        "Docker",
+        "NextCloud",
+        "Nginx Proxy Manager",
+        "Cloud Computing",
+      ],
+      links: [
+        {
+          text: "View Moodle",
+          url: "https://homeschool.poulinfam.com/",
         },
       ],
     },
