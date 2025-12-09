@@ -2,7 +2,7 @@ import { Code, Shield, Zap, Users } from "lucide-react";
 
 export default function About() {
   return (
-    <div className="min-h-screen flex flex-col items-center p-4 px-4 py-15">
+    <main className="min-h-screen flex flex-col items-center p-4 px-4 py-15">
       <div className="flex flex-col items-center justify-center w-full max-w-4xl px-4 space-y-7">
         <h2>About Me</h2>
 
@@ -135,6 +135,6 @@ export default function About() {
         <span className="about-tech-btn">Cloud Computing</span>
         <span className="about-tech-btn">Docker</span>
       </div>
-    </div>
+    </main>
   );
 }

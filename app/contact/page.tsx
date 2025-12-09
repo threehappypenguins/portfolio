@@ -3,7 +3,7 @@ import { Mail, MapPin } from "lucide-react";
 
 export default function Contact() {
   return (
-    <div className="min-h-screen flex flex-col items-center px-4 py-16">
+    <main className="min-h-screen flex flex-col items-center px-4 py-16">
       <div className="max-w-6xl w-full">
         {/* Header */}
         <div className="text-center mb-12 flex flex-col gap-4">
@@ -60,6 +60,6 @@ export default function Contact() {
           <ContactForm />
         </div>
       </div>
-    </div>
+    </main>
   );
 }
