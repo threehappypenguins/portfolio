@@ -3,6 +3,7 @@ import { Arimo } from "next/font/google";
 import { ThemeProvider } from "./theme-provider";
 import { Navbar } from "./components/navbar";
 import { Footer } from "./components/footer";
+import { Analytics } from '@vercel/analytics/react'
 import "./globals.css";
 
 const arimo = Arimo({
@@ -29,9 +30,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${arimo.variable} antialiased`}>
@@ -40,6 +41,9 @@ export default function RootLayout({
           {children}
           <Footer />
         </ThemeProvider>
+
+        {/* Vercel Analytics */}
+        <Analytics />
       </body>
     </html>
   );
