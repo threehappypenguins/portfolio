@@ -246,19 +246,37 @@ export const timelineData: TimelineItem[] = [
     },
   },
   {
+    date: "Sep 2024",
+    title: "Mitigated Serious NSHA Vulnerability",
+    richContent: {
+      description:
+        "On September 27, I sent an email to the Canadian Centre for Cyber Security regarding two NSHA (Nova Scotia Health Authority) devices that had port 3389 (remote desktop) publicly exposed and NLA (Network Level Authentication) turned off. This meant that anybody could pull up the log in screen on the device and then go to town with usernames and passwords (not that I've ever actually tried it on any actual entity; I just know that it's not particularly hard to do).\n\nI later heard back from CCCS about it, thanking me for my report",
+      links: [
+        {
+          text: "Auditor General Cybersecurity Report",
+          url: "https://oag-ns.ca/media/news-releases/2024/without-robust-cybersecurity-nova-scotias-digital-health-network-serious",
+        },
+        {
+          text: "Canadian Centre for Cyber Security",
+          url: "https://www.cyber.gc.ca/",
+        },
+      ],
+      images: [
+        {
+          src: "/portfolio/CCCS-email.jpeg",
+          alt: "Email screenshot from Canadian Centre for Cyber Security",
+          caption: "Email from CCCS Thanking Me",
+        },
+      ],
+    },
+  },
+  {
     date: "Jan 2022",
     title: "Asterisk (PBX) Server",
     richContent: {
       description:
-        "Problem: There are people without access to high speed internet in parts of rural Nova Scotia (yes, these places still exist!), or elderly people who don't understand how to navigate devices or the internet; and while there are services that will play the audio of a live stream over the phone, they are prohibitively expensive for a small non-profit organization.\n\nSolution: Free Oracle Cloud compute instances and open source applications and frameworks to get the job done. The applications/frameworks include: Restreamer (datarhei) to multicast to several platforms including YouTube, Facebook, Sermon Audio, and another self-hosted application called Icecast. Icecast to encode the audio from the live stream to mp3. And lastly, Asterisk (a PBX), a framework that will play the mp3 (like an \"internet radio station\"), pick up the calls, and park any caller into MOH (Music on Hold). I included screenshots of some of my Asterisk setup (no GUI, but not really needed since the setup is quite simple). If one calls outside of the live streaming hours, the caller will receive a message and Asterisk will hang up.\n\nA bit of a security note; because \"sip scanners\" are a real problem, I use iptables as a firewall to ensure the server is not pummeled with calls from sip scanners or other threats, and set up Fail2Ban as an additional security measure.\n\nThe only thing that had to be paid for was a SIP service for a DID (Direct Inward Dialing); essentially a phone number for people to call. But at $0.50 a month and $0.004 per minute, it's a bit of a no brainer. One of the paid packages for a complete solution is $150 a month!\n\nThis is one of the many things I have taught myself to do, to find more efficient (and inexpensive) solutions.\n\nCall the phone number (link below) between 10:30 am and about noon, and 2:00 pm and about 3:30 pm on Sundays to check it out!",
-      technologies: [
-        "Asterisk",
-        "PBX",
-        "SIP",
-        "Iceast",
-        "VoIP",
-        "DID",
-      ],
+        'Problem: There are people without access to high speed internet in parts of rural Nova Scotia (yes, these places still exist!), or elderly people who don\'t understand how to navigate devices or the internet; and while there are services that will play the audio of a live stream over the phone, they are prohibitively expensive for a small non-profit organization.\n\nSolution: Free Oracle Cloud compute instances and open source applications and frameworks to get the job done. The applications/frameworks include: Restreamer (datarhei) to multicast to several platforms including YouTube, Facebook, Sermon Audio, and another self-hosted application called Icecast. Icecast to encode the audio from the live stream to mp3. And lastly, Asterisk (a PBX), a framework that will play the mp3 (like an "internet radio station"), pick up the calls, and park any caller into MOH (Music on Hold). I included screenshots of some of my Asterisk setup (no GUI, but not really needed since the setup is quite simple). If one calls outside of the live streaming hours, the caller will receive a message and Asterisk will hang up.\n\nA bit of a security note; because "sip scanners" are a real problem, I use iptables as a firewall to ensure the server is not pummeled with calls from sip scanners or other threats, and set up Fail2Ban as an additional security measure.\n\nThe only thing that had to be paid for was a SIP service for a DID (Direct Inward Dialing); essentially a phone number for people to call. But at $0.50 a month and $0.004 per minute, it\'s a bit of a no brainer. One of the paid packages for a complete solution is $150 a month!\n\nThis is one of the many things I have taught myself to do, to find more efficient (and inexpensive) solutions.\n\nCall the phone number (link below) between 10:30 am and about noon, and 2:00 pm and about 3:30 pm on Sundays to check it out!',
+      technologies: ["Asterisk", "PBX", "SIP", "Iceast", "VoIP", "DID"],
       links: [
         {
           text: "View Icecast",
