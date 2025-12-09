@@ -19,6 +19,25 @@ export interface TimelineItem {
 
 export const timelineData: TimelineItem[] = [
   {
+    date: "Nov 2025",
+    title: "Normalization Practice App",
+    richContent: {
+      description:
+        "An interactive web application for learning and practicing database normalization through hands-on exercises.",
+      links: [
+        {
+          text: "View App",
+          url: "https://normalization.sarahpoulin.ca/",
+        },
+        {
+          text: "View Project",
+          url: "https://github.com/threehappypenguins/normalization-practice",
+        },
+      ],
+      technologies: ["React", "Vite", "Tailwind", "LocalStorage"],
+    },
+  },
+  {
     date: "Oct 2025",
     title: "First Prize RBC HubHacks Hackathon",
     richContent: {
@@ -74,7 +93,15 @@ export const timelineData: TimelineItem[] = [
     richContent: {
       description:
         "This application is under heavy development. It is intended to be a tool to track the symptoms of a patient with Autobrewery Syndrome, and provide information for healthcare practitioners.",
-      technologies: ["React Native", "TypeScript", "Tailwind", "Nativewind", "Expo", "Supabase", "PostgreSQL"],
+      technologies: [
+        "React Native",
+        "TypeScript",
+        "Tailwind",
+        "Nativewind",
+        "Expo",
+        "Supabase",
+        "PostgreSQL",
+      ],
       links: [
         {
           text: "View Project",
@@ -114,7 +141,14 @@ export const timelineData: TimelineItem[] = [
         "Suggestions in the notifications can be based on whether you're starting a project or looking for work",
         "Generate tooltips on the individual's LinkedIn, giving additional details about the person from the database",
       ],
-      technologies: ["EC2", "MongoDB", "Node.js", "JavaScript", "CRUD API", "Greasemonkey"],
+      technologies: [
+        "EC2",
+        "MongoDB",
+        "Node.js",
+        "JavaScript",
+        "CRUD API",
+        "Greasemonkey",
+      ],
       links: [
         {
           text: "View Project",
