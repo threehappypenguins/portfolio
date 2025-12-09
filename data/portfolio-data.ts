@@ -130,7 +130,7 @@ export const timelineData: TimelineItem[] = [
     },
   },
   {
-    date: "Jun 2025",
+    date: "Jun 2025 — Present",
     title: "Retainium App",
     richContent: {
       description:
@@ -234,6 +234,25 @@ export const timelineData: TimelineItem[] = [
     },
   },
   {
+    date: "May 2014 — 2018",
+    title: "User Experience Tester",
+    richContent: {
+      description: "Usability tester with UserTesting.",
+      bullets: [
+        "5 star usability tester",
+        "Looked for website or mobile application inconsistencies and usability",
+        "Verbally spoke through the process which is recorded via microphone and screen capture for the benefit of designers and developers",
+        "Gave feedback and suggestions for improvement",
+      ],
+      links: [
+        {
+          text: "UserTesting Website",
+          url: "https://www.usertesting.com/",
+        },
+      ],
+    },
+  },
+  {
     date: "Aug 2009 — Present",
     title: "Childcare & Homeschool Coordinator",
     richContent: {
@@ -243,6 +262,7 @@ export const timelineData: TimelineItem[] = [
         "Regularly add curriculum content such as lessons and quizzes",
         "Maintain home NAS (Odroid HC4) on Debian OS",
         "Deployed NextCloud and Nginx Proxy Manager to securely and automatically back up media from smart phones",
+        "Deployed Mesh Central server for device control",
       ],
       technologies: [
         "Moodle",
@@ -252,11 +272,107 @@ export const timelineData: TimelineItem[] = [
         "NextCloud",
         "Nginx Proxy Manager",
         "Cloud Computing",
+        "Mesh Central",
       ],
       links: [
         {
           text: "View Moodle",
           url: "https://homeschool.poulinfam.com/",
+        },
+      ],
+    },
+  },
+  {
+    date: "Jan 2008 — Present",
+    title: "Technical Advisor (Volunteer)",
+    richContent: {
+      description:
+        "I oversee and implement technical operations at Covenant Reformed Presbyterian Church. Some of the things I have done are:",
+      bullets: [
+        "Purchased equipment and set up live streaming with OBS",
+        "Regularly spin up and maintain Docker containers for various apps and services",
+        "Created a Restreaming server to push streams to Sermon Audio, YouTube, Facebook, and Icecast",
+        "Created an Icecast server to serve an audio only stream to mp3 of the live stream",
+        "Created an Asterisk (PBX) server to answer phone calls and park caller to listen to the Icecast mp3 on Music on Hold",
+        "Created a DokuWiki server on a subdomain that allows an assigned person to take care of church and prayer updates without the need of having access to the entire website",
+        "Created a Mesh Central server to have remote access to the church laptop in order to help the audio/video technician when necessary",
+        "Created a server with Puppeteer scripts (javascript) to change metadata on Sermon Audio and also schedule Facebook live stream videos",
+        "Set up a SermonArchive on a homemade NAS (Odroid HC2) running OMV",
+        "Utilized a GUI tool to transform command line applications into a job service (Jobson) in order to enter metadata for sermon upload and archiving",
+        "Secured Jobson with NPM Authelia set up for 2FA",
+        "Created python scripts using API to automatically schedule two livestream videos on YouTube, then a cron to change stream key to main one for the afternoon service after first has ended",
+        "Created bash scripts utilizing inotify-tools to detect when an mp4 recording has finished being transferred to the NAS which then automatically uploads to Sermon Audio and YouTube (using API), changes the metadata and renames the mp4, and archives it",
+        "Generate video thumbnails for sermon videos on a weekly basis",
+        "Created a bash script to use fetchmail which checks email twice daily for a sermon notes Word document attachment, and when detected, will download the .docx, convert to pdf, upload it to Sermon Audio (using API), and archives it",
+        "Helped to deploy church website with Weebly",
+        "Manage social media accounts",
+      ],
+      technologies: [
+        "OBS",
+        "Docker",
+        "Restreamer",
+        "Icecast",
+        "Asterisk",
+        "Nginx Proxy Manager",
+        "Cloud Computing",
+        "Mesh Central",
+        "Puppeteer",
+        "JavaScript",
+        "Python",
+        "Bash",
+        "Fetchmail",
+      ],
+      links: [
+        {
+          text: "CRPC Website",
+          url: "https://www.crpchalifax.ca/",
+        },
+        {
+          text: "CRPC YouTube Channel",
+          url: "https://www.youtube.com/@crpchalifax",
+        },
+        {
+          text: "CRPC Facebook",
+          url: "https://www.facebook.com/crpchalifax",
+        },
+        {
+          text: "CRPC X (Twitter)",
+          url: "https://x.com/CRPCHalifax",
+        },
+      ],
+    },
+  },
+  {
+    date: "Jun 2007 — Aug 2009",
+    title: "Security Officer",
+    richContent: {
+      description:
+        "Security officer at Scotia Square and Park Lane Mall with Crombie REIT (Sobeys).",
+      bullets: [
+        "Certificate of Merit from Halifax Regional Police for assisting in the arrest of a bank robber on February 1st, 2008",
+        "Skilled in Microsoft Word, Excel, Outlook, and Powerpoint",
+        "Investigations into insecure premises, thefts, leaks, property damage, etc, and skilled in writing detailed reports",
+        "Trained in legal articulation, tactical principles, handcuffing, impact weapons, and search procedures",
+        "Experience in assisting arrests",
+        "Conducted patrols, security checks, lock-up of premises",
+        "Trained in creating various work orders, elevator bookings, etc",
+        "Experience in contacting emergency personnel, working through fire alarms, emergency threats, and other emergencies",
+      ],
+      images: [
+        {
+          src: "/portfolio/Crombie-award1.jpeg",
+          alt: "Official merit award photo",
+          caption: "Merit Award Presentation at HRP Headquarters",
+        },
+        {
+          src: "/portfolio/Crombie-award2.jpeg",
+          alt: "Receiving merit award",
+          caption: "Me Receiving Merit Award",
+        },
+        {
+          src: "/portfolio/Crombie-award3.jpeg",
+          alt: "Holding merit award outside of HRP headquarters",
+          caption: "My Husband Eric (also a security officer with Crombie at the time) and I Outside of HRP Headquarters",
         },
       ],
     },
