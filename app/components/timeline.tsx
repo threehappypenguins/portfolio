@@ -190,7 +190,7 @@ export function Timeline() {
                       id={`timeline-content-${index}`}
                       className="overflow-hidden transition-all duration-300 max-h-[2000px] opacity-100"
                     >
-                      <div className="text-portfolio-text max-w-2xl mx-auto px-2 pb-6 text-left relative">
+                      <div className="text-portfolio-text max-w-2xl mx-auto px-2 py-6 text-left relative">
                         <div className="space-y-4">
                           {/* Description */}
                           {item.richContent.description && (
