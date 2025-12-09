@@ -42,7 +42,7 @@ export const timelineData: TimelineItem[] = [
     title: "Programming Fundamentals Quiz App",
     richContent: {
       description:
-        "A dynamic, interactive quiz application built with Flask. Features include question shuffling, multiple retry attempts, detailed result analysis, and support for multiple quizzes. I needed a quick way to practice a quiz coming up for my Programming Fundamentals class (we were given the quiz to take on BrightSpace ahead of time, but I found it helped to be asked the questions again that I got wrong, and keep repeating until I got it correct. I also implemented a QR code so that the local host could be opened from a mobile device.",
+        "A dynamic, interactive quiz application built with Flask. Features include question shuffling, multiple retry attempts, detailed result analysis, and support for multiple quizzes. I needed a quick way to practice a quiz coming up for my Programming Fundamentals class (we were given the quiz to take on BrightSpace ahead of time), but I found it helped to be asked the incorrectly answered questions again, and keep repeating until I got them correct. I also implemented a QR code so that the local host could be opened from a mobile device.",
       links: [
         {
           text: "View Project",
