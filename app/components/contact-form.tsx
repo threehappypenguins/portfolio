@@ -300,9 +300,9 @@ export default function ContactForm() {
               <div className="mx-auto w-16 h-16 bg-card-icon-bg rounded-full flex items-center justify-center mb-4">
                 <Send className="w-8 h-8 text-card-icon" />
               </div>
-              <h3 className="text-2xl font-semibold text-card-title-text mb-2">
+              <h1 className="text-2xl font-semibold text-card-title-text mb-2">
                 Message Sent!
-              </h3>
+              </h1>
               <p className="text-card-text mb-6">
                 Thank you for reaching out. I'll get back to you soon!
               </p>

@@ -62,7 +62,7 @@ export default function Home() {
         </div>
       </div>
       <div id="portfolio" className="space-y-4">
-        <h2>Portfolio</h2>
+        <h2 className="heading-secondary">Portfolio</h2>
 
         <p className="text-lg text-center text-portfolio-text">
           A timeline of my work and accomplishments

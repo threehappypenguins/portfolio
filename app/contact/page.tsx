@@ -28,7 +28,7 @@ export default function Contact() {
                   <Mail className="w-5 h-5 text-card-icon" />
                 </div>
                 <div>
-                  <h4 className="text-lg text-card-title-text mb-1">Email</h4>
+                  <h2 className="text-lg text-card-title-text mb-1">Email</h2>
                   <p className="text-card-text">sarah@poulinfam.com</p>
                 </div>
               </div>
@@ -46,9 +46,9 @@ export default function Contact() {
                     <MapPin className="w-5 h-5 text-card-icon" />
                   </div>
                   <div>
-                    <h4 className="text-lg text-card-title-text mb-1">
+                    <h2 className="text-lg text-card-title-text mb-1">
                       Location
-                    </h4>
+                    </h2>
                     <p className="text-card-text">Dartmouth, Nova Scotia</p>
                   </div>
                 </div>

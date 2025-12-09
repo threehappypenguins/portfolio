@@ -159,12 +159,12 @@ h1.hero-heading {
   color: transparent;
 }
 
-h1.heading-secondary {
+.heading-secondary {
   @apply text-center w-fit mx-auto text-3xl md:text-4xl;
   color: var(--h2);
 }
 
-h2.heading-tertiary {
+.heading-tertiary {
   @apply text-2xl pb-6;
   color: var(--h2);
 }
