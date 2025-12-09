@@ -194,7 +194,7 @@ export function Timeline() {
                         <div className="space-y-4">
                           {/* Description */}
                           {item.richContent.description && (
-                            <p className="text-portfolio-text">
+                            <p className="text-portfolio-text whitespace-pre-line">
                               {item.richContent.description}
                             </p>
                           )}

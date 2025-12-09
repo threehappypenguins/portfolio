@@ -246,6 +246,55 @@ export const timelineData: TimelineItem[] = [
     },
   },
   {
+    date: "Jan 2022",
+    title: "Asterisk (PBX) Server",
+    richContent: {
+      description:
+        "Problem: There are people without access to high speed internet in parts of rural Nova Scotia (yes, these places still exist!), or elderly people who don't understand how to navigate devices or the internet; and while there are services that will play the audio of a live stream over the phone, they are prohibitively expensive for a small non-profit organization.\n\nSolution: Free Oracle Cloud compute instances and open source applications and frameworks to get the job done. The applications/frameworks include: Restreamer (datarhei) to multicast to several platforms including YouTube, Facebook, Sermon Audio, and another self-hosted application called Icecast. Icecast to encode the audio from the live stream to mp3. And lastly, Asterisk (a PBX), a framework that will play the mp3 (like an \"internet radio station\"), pick up the calls, and park any caller into MOH (Music on Hold). I included screenshots of some of my Asterisk setup (no GUI, but not really needed since the setup is quite simple). If one calls outside of the live streaming hours, the caller will receive a message and Asterisk will hang up.\n\nA bit of a security note; because \"sip scanners\" are a real problem, I use iptables as a firewall to ensure the server is not pummeled with calls from sip scanners or other threats, and set up Fail2Ban as an additional security measure.\n\nThe only thing that had to be paid for was a SIP service for a DID (Direct Inward Dialing); essentially a phone number for people to call. But at $0.50 a month and $0.004 per minute, it's a bit of a no brainer. One of the paid packages for a complete solution is $150 a month!\n\nThis is one of the many things I have taught myself to do, to find more efficient (and inexpensive) solutions.\n\nCall the phone number (link below) between 10:30 am and about noon, and 2:00 pm and about 3:30 pm on Sundays to check it out!",
+      technologies: [
+        "Asterisk",
+        "PBX",
+        "SIP",
+        "Iceast",
+        "VoIP",
+        "DID",
+      ],
+      links: [
+        {
+          text: "View Icecast",
+          url: "https://audio.crpchalifax.ca/",
+        },
+        {
+          text: "Call Listen Line",
+          url: "tel:+19024185135",
+        },
+      ],
+      images: [
+        {
+          src: "/portfolio/asterisk1.jpeg",
+          alt: "Terminal screenshot of Asterisk configuration",
+          caption: "Asterisk Configuration of pjsip.conf",
+        },
+        {
+          src: "/portfolio/asterisk2.jpeg",
+          alt: "Terminal screenshot of Asterisk configuration",
+          caption: "Asterisk Configuration of mohstream script",
+        },
+        {
+          src: "/portfolio/asterisk3.jpeg",
+          alt: "Terminal screenshot of Asterisk configuration",
+          caption: "Asterisk Configuration of musiconhold.conf",
+        },
+        {
+          src: "/portfolio/asterisk4.jpeg",
+          alt: "Terminal screenshot of Asterisk configuration",
+          caption: "Asterisk Configuration of extensions.conf
+          ",
+        },
+      ],
+    },
+  },
+  {
     date: "May 2014 — 2018",
     title: "User Experience Tester",
     richContent: {
@@ -338,6 +387,10 @@ export const timelineData: TimelineItem[] = [
         {
           text: "CRPC Website",
           url: "https://www.crpchalifax.ca/",
+        },
+        {
+          text: "CRPC Livestream",
+          url: "https://live.crpchalifax.ca/",
         },
         {
           text: "CRPC YouTube Channel",
