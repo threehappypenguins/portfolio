@@ -58,6 +58,7 @@ export const timelineData: TimelineItem[] = [
     richContent: {
       description:
         "For this hackathon, we were presented with the problem statement Improving Food Security through Innovative Solutions. Our vision was an application that would enable food insecure individuals and families to be able to find a local food bank, and filter products by allergen and/or culturally sensitive foods. Furthermore, we presented the idea that another application could be created for food banks to scan in foods and auto-populate a database (such as Firestore) using Open Food Facts API. We implemented the user-based application, FoodSafe NS, using React and created a dummy database that pulled from Open Food Facts. We believe that this implementation is also valuable to ensure that food banks are able to create a call-to-action to the public with specific grocery items that are needed, since all items would be tracked in a database.",
+      technologies: ["React", "Node.js", "Express", "Firestore"],
       links: [
         {
           text: "NSCC Article",
@@ -72,7 +73,6 @@ export const timelineData: TimelineItem[] = [
           url: "https://world.openfoodfacts.org/data",
         },
       ],
-      technologies: ["React", "Node.js", "Express", "Firestore"],
       images: [
         {
           src: "/portfolio/2025-10-18-hubhacks1.jpg",
@@ -103,7 +103,7 @@ export const timelineData: TimelineItem[] = [
     },
   },
   {
-    date: "Sep 2025",
+    date: "Sep 2025 — Present",
     title: "ABStrack: Symptom Tracker App",
     richContent: {
       description:
@@ -125,6 +125,72 @@ export const timelineData: TimelineItem[] = [
         {
           text: "Autobrewery Syndrome",
           url: "https://www.autobrewery.org/",
+        },
+      ],
+    },
+  },
+  {
+    date: "Jun 2025",
+    title: "Retainium App",
+    richContent: {
+      description:
+        "Contributor to a cheat sheet generator project on a private GitHub repository. I have completed the following issues:",
+      bullets: [
+        "Setup storybook to assist in testing core components",
+        "Modified Tailwind to make formulas and other previews visible in dark mode",
+        "Implemented chat UI and used OpenAI API",
+        "Added database persistence for chats",
+        "Made title in formula blocks to be hidden by default and only show edit/delete when hovering",
+        "For chats, added title generator (using OpenAI API), tooltip for truncated titles, and made title editable ",
+        "Fixed bug in page creation from module page (previously hardcoded to go to blocks page)",
+      ],
+      technologies: [
+        "Next.js",
+        "React",
+        "Tailwind",
+        "Supabase",
+        "PostgreSQL",
+      ],
+      images: [
+        {
+          src: "/portfolio/Retainium-darkmodefix.png",
+          alt: "Demonstrating Retainium dark mode fix",
+          caption: "Dark Mode Fix",
+        },
+        {
+          src: "/portfolio/Retainium-chatui1.png",
+          alt: "Demonstrating Retainium chat UI implementation on chat page",
+          caption: "Chat UI from Chat Page",
+        },
+        {
+          src: "/portfolio/Retainium-chatui2.png",
+          alt: "Demonstrating Retainium chat UI implementation from chat bubble",
+          caption: "Chat UI from Chat Bubble",
+        },
+        {
+          src: "/portfolio/Retainium-chat-persistence.png",
+          alt: "Demonstrating Retainium chat database persistence",
+          caption: "Database Persistence",
+        },
+        {
+          src: "/portfolio/Retainium-titledefault.png",
+          alt: "Demonstrating Retainium title hidden by default in formulas",
+          caption: "Formula Title Hidden by Default (showing edit/delete when hovering)",
+        },
+        {
+          src: "/portfolio/Retainium-chattitle1.png",
+          alt: "Demonstrating Retainium chat title generation and tooltip for truncated titles",
+          caption: "Chat Title Generation and Tooltip",
+        },
+        {
+          src: "/portfolio/Retainium-chattitle2.png",
+          alt: "Demonstrating Retainium chat editable title",
+          caption: "Chat Editable Title",
+        },
+        {
+          src: "/portfolio/Retainium-module-page.png",
+          alt: "Demonstrating page creation from modules",
+          caption: "Page Creation Modal from Modules",
         },
       ],
     },
