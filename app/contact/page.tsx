@@ -7,7 +7,7 @@ export default function Contact() {
       <div className="max-w-6xl w-full">
         {/* Header */}
         <div className="text-center mb-12 flex flex-col gap-4">
-          <h2>Get In Touch</h2>
+          <h1 className="heading-secondary">Get In Touch</h1>
           <p className="about-paragraph text-lg">
             Have a question? Feel free to reach out!
           </p>

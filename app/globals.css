@@ -150,7 +150,7 @@ body {
 
 /* Headers */
 
-h1 {
+h1.hero-heading {
   @apply text-center w-fit mx-auto text-4xl md:text-6xl;
   background-image: linear-gradient(to right, var(--h1), var(--h1-end));
   -webkit-background-clip: text;
@@ -159,12 +159,12 @@ h1 {
   color: transparent;
 }
 
-h2 {
+h1.heading-secondary {
   @apply text-center w-fit mx-auto text-3xl md:text-4xl;
   color: var(--h2);
 }
 
-h3 {
+h2.heading-tertiary {
   @apply text-2xl pb-6;
   color: var(--h2);
 }

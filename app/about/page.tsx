@@ -4,7 +4,7 @@ export default function About() {
   return (
     <main className="min-h-screen flex flex-col items-center p-4 px-4 py-15">
       <div className="flex flex-col items-center justify-center w-full max-w-4xl px-4 space-y-7">
-        <h2>About Me</h2>
+        <h1 className="heading-secondary">About Me</h1>
 
         <div className="about-paragraph pt-9 pb-16 space-y-7">
           <p>
@@ -112,7 +112,7 @@ export default function About() {
           </div>
         </div>
       </div>
-      <h3>Skills & Technologies</h3>
+      <h2 className="heading-tertiary">Skills & Technologies</h2>
 
       <div className="flex flex-wrap justify-center gap-3 max-w-5xl">
         <span className="about-tech-btn">Cybersecurity</span>
