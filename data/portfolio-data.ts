@@ -231,6 +231,18 @@ export const timelineData: TimelineItem[] = [
           url: "https://github.com/Vertfromage/agenticAIHackathon",
         },
       ],
+      images: [
+        {
+          src: "/portfolio/2024-11-16-aihackathon1.jpeg",
+          alt: "Agentic AI Hackathon photo of me holding winning certificate",
+          caption: "Me Holding up Winning Certificate",
+        },
+        {
+          src: "/portfolio/2024-11-16-aihackathon2.jpeg",
+          alt: "Agentic AI Hackathon winning team photo",
+          caption: "Winning Team Photo",
+        },
+      ],
     },
   },
   {
@@ -372,7 +384,18 @@ export const timelineData: TimelineItem[] = [
         {
           src: "/portfolio/Crombie-award3.jpeg",
           alt: "Holding merit award outside of HRP headquarters",
-          caption: "My Husband Eric (also a security officer with Crombie at the time) and I Outside of HRP Headquarters",
+          caption:
+            "My Husband Eric (also a security officer with Crombie at the time) and I Outside of HRP Headquarters",
+        },
+        {
+          src: "/portfolio/Crombie-award4.jpeg",
+          alt: "Framed merit award containing story of bank robbery at Scotiabank",
+          caption: "The Merit Award and Story of Scotiabank Robbery",
+        },
+        {
+          src: "/portfolio/Crombie-award5.jpeg",
+          alt: "Newspaper clipping of bank robbery story",
+          caption: "Newspaper Clipping of Bank Robbery",
         },
       ],
     },
