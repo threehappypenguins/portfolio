@@ -169,6 +169,16 @@ h1.hero-heading {
   color: var(--h2);
 }
 
+#portfolio {
+  scroll-margin-top: 250px; /* Mobile header height */
+}
+
+@media (min-width: 768px) {
+  #portfolio {
+    scroll-margin-top: 80px; /* Desktop header height */
+  }
+}
+
 /* Social Buttons */
 
 .social-button-group {
