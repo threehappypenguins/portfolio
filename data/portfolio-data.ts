@@ -288,8 +288,7 @@ export const timelineData: TimelineItem[] = [
         {
           src: "/portfolio/asterisk4.jpeg",
           alt: "Terminal screenshot of Asterisk configuration",
-          caption: "Asterisk Configuration of extensions.conf
-          ",
+          caption: "Asterisk Configuration of extensions.conf",
         },
       ],
     },
