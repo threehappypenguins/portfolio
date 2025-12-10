@@ -252,7 +252,7 @@ export function Timeline() {
                             <div className="space-y-4 mt-4">
                               <div className="space-y-2">
                                 <div
-                                  className={`relative w-full rounded-lg overflow-hidden aspect-video ${
+                                  className={`relative w-full rounded-lg overflow-hidden aspect-4/3 ${
                                     hasMultipleImages ? "group" : ""
                                   }`}
                                 >
