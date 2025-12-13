@@ -28,7 +28,10 @@ export default function ScrollGears() {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const currentScrollY = window.scrollY;
-          const delta = currentScrollY - lastScrollY.current;
+          let delta = currentScrollY - lastScrollY.current;
+
+          // Prevent jumps caused by sudden scroll changes (e.g., mobile menu)
+          if (Math.abs(delta) > 100) delta = 0;
 
           rotation.current += delta * SCROLL_MULTIPLIER;
 
