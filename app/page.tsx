@@ -1,12 +1,13 @@
 import { IconBrandGithub, IconMail } from "@tabler/icons-react";
 import { IconBrandLinkedin } from "./components/icons";
 import Image from "next/image";
+import ScrollGears from "./components/gears";
 import { Timeline } from "./components/timeline";
 
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center p-4 bg-gradient-bg">
-      <div className="min-h-screen flex flex-col items-center justify-center w-full max-w-4xl px-4 space-y-7 pb-16" >
+      <div className="min-h-screen flex flex-col items-center justify-center w-full max-w-4xl px-4 space-y-7 pb-16">
         <Image
           src="/logo.png"
           alt="Gear logo"
@@ -60,6 +61,7 @@ export default function Home() {
             </a>
           </div>
         </div>
+        <ScrollGears />
       </div>
       <div id="portfolio" className="space-y-4">
         <h2 className="heading-secondary">Portfolio</h2>
