@@ -229,6 +229,27 @@ export function Timeline() {
                             </div>
                           )}
 
+                          {/* YouTube Video Embed */}
+                          {item.richContent.videoUrl && (
+                            <div className="mt-4">
+                              <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+                                <iframe
+                                  src={item.richContent.videoUrl}
+                                  title={item.richContent.videoTitle || "Video"}
+                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                  allowFullScreen
+                                  className="absolute top-0 left-0 w-full h-full border-0"
+                                  referrerPolicy="strict-origin-when-cross-origin"
+                                />
+                              </div>
+                              {item.richContent.videoCaption && (
+                                <p className="text-sm text-portfolio-text text-center mt-2">
+                                  {item.richContent.videoCaption}
+                                </p>
+                              )}
+                            </div>
+                          )}
+
                           {/* Links */}
                           {item.richContent.links && (
                             <div className="flex flex-wrap justify-center gap-3 mt-4">

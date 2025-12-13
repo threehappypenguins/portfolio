@@ -14,6 +14,9 @@ export interface TimelineItem {
       alt: string;
       caption?: string;
     }[];
+    videoUrl?: string;
+    videoTitle?: string;
+    videoCaption?: string;
   };
 }
 
@@ -267,6 +270,22 @@ export const timelineData: TimelineItem[] = [
           alt: "Email screenshot from Canadian Centre for Cyber Security",
           caption: "Email from CCCS Thanking Me",
         },
+      ],
+    },
+  },
+  {
+    date: "Jul 2022",
+    title: "Wedding Videography",
+    richContent: {
+      description:
+        "I did the livestream and videography for the wedding ceremony and reception of some friends.",
+      videoUrl: "https://www.youtube.com/embed/p55lbiCtNIw?si=xGSvS0TgiGG0uGRm",
+      videoTitle: "Henken Wedding",
+      videoCaption: "Henken Wedding Music Video",
+      technologies: [
+        "Canon Rebel SL2",
+        "OBS",
+        "DaVinci Resolve",
       ],
     },
   },
