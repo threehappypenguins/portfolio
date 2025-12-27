@@ -17,10 +17,31 @@ export interface TimelineItem {
     videoUrl?: string;
     videoTitle?: string;
     videoCaption?: string;
+    recursiveIframe?: {
+      url: string;
+      title: string;
+      caption?: string;
+      placeholderImage?: string;
+    };
   };
 }
 
 export const timelineData: TimelineItem[] = [
+  {
+    date: "Nov 2025",
+    title: "My Portfolio",
+    richContent: {
+      description:
+        "This portfolio was originally a project for UX class at NSCC. I absolutely adore recursions. Why did I do this? Because I can.",
+      technologies: ["React", "Next.js", "Recursion", "Inception"],
+      recursiveIframe: {
+        url: "https://sarahpoulin.ca",
+        title: "Portfolio Recursion",
+        caption: "Click on the image below to reveal the infinite recursion!",
+        placeholderImage: "/portfolio/recursion.jpg",
+      },
+    },
+  },
   {
     date: "Nov 2025",
     title: "Normalization Practice App",
@@ -282,11 +303,7 @@ export const timelineData: TimelineItem[] = [
       videoUrl: "https://www.youtube.com/embed/p55lbiCtNIw?si=xGSvS0TgiGG0uGRm",
       videoTitle: "Henken Wedding",
       videoCaption: "Henken Wedding Music Video",
-      technologies: [
-        "Canon Rebel SL2",
-        "OBS",
-        "DaVinci Resolve",
-      ],
+      technologies: ["Canon Rebel SL2", "OBS", "DaVinci Resolve"],
     },
   },
   {

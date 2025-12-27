@@ -18,15 +18,41 @@ export function Timeline() {
     imageIndex: number;
     totalImages: number;
   } | null>(null);
+  const [showRecursion, setShowRecursion] = useState<{
+    [key: number]: boolean;
+  }>({});
+  const [recursionDepth, setRecursionDepth] = useState(0);
 
   const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const params = new URLSearchParams(window.location.search);
+    const depth = parseInt(params.get("depth") || "0", 10);
+    setRecursionDepth(depth);
+
+    // Auto-expand recursion item if we're in a nested iframe
+    if (depth > 0) {
+      const recursionIndex = timelineData.findIndex(
+        (item) => item.richContent.recursiveIframe
+      );
+
+      if (recursionIndex !== -1) {
+        setExpandedIndex(recursionIndex);
+
+        setTimeout(() => {
+          contentRefs.current[recursionIndex]?.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }, 100);
+      }
+    }
+  }, []);
+
   const handleClick = (index: number) => {
-    const currentScrollY = window.scrollY;
     setExpandedIndex(expandedIndex === index ? null : index);
-    requestAnimationFrame(() => {
-      window.scrollTo(0, currentScrollY);
-    });
   };
 
   const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
@@ -34,6 +60,13 @@ export function Timeline() {
       e.preventDefault();
       handleClick(index);
     }
+  };
+
+  const toggleRecursion = (index: number) => {
+    setShowRecursion((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
   };
 
   const nextImage = (itemIndex: number, totalImages: number) => {
@@ -70,8 +103,7 @@ export function Timeline() {
 
   const nextModalImage = () => {
     if (!modalImage) return;
-    const item = timelineData[modalImage.itemIndex];
-    const images = item.richContent.images;
+    const images = timelineData[modalImage.itemIndex].richContent.images;
     if (!images) return;
 
     const newIndex = (modalImage.imageIndex + 1) % images.length;
@@ -85,8 +117,7 @@ export function Timeline() {
 
   const prevModalImage = () => {
     if (!modalImage) return;
-    const item = timelineData[modalImage.itemIndex];
-    const images = item.richContent.images;
+    const images = timelineData[modalImage.itemIndex].richContent.images;
     if (!images) return;
 
     const newIndex =
@@ -120,16 +151,22 @@ export function Timeline() {
   };
 
   useEffect(() => {
-    if (modalImage) {
-      const handleKeyDown = (e: KeyboardEvent) => {
-        if (e.key === "Escape") {
-          setModalImage(null);
-        }
-      };
-      document.addEventListener("keydown", handleKeyDown);
-      return () => document.removeEventListener("keydown", handleKeyDown);
-    }
+    if (!modalImage) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setModalImage(null);
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [modalImage]);
+
+  const getRecursiveUrl = () => {
+    if (typeof window === "undefined") return "";
+    const baseUrl = window.location.origin + window.location.pathname;
+    const nextDepth = recursionDepth + 1;
+    return `${baseUrl}?depth=${nextDepth}`;
+  };
 
   return (
     <>
@@ -141,6 +178,8 @@ export function Timeline() {
             const images = item.richContent.images || [];
             const currentIdx = getCurrentImageIndex(index);
             const isExpanded = expandedIndex === index;
+            const hasRecursion = !!item.richContent.recursiveIframe;
+            const isRecursionShown = showRecursion[index];
 
             return (
               <div key={index}>
@@ -226,6 +265,75 @@ export function Timeline() {
                                   )
                                 )}
                               </div>
+                            </div>
+                          )}
+
+                          {/* Recursive Iframe */}
+                          {hasRecursion && (
+                            <div className="mt-4 space-y-4">
+                              {recursionDepth < 10 ? (
+                                !isRecursionShown ? (
+                                  // Show the image with click instruction
+                                  <div className="text-center">
+                                    <p className="text-lg font-semibold mb-3">
+                                      {
+                                        item.richContent.recursiveIframe
+                                          ?.caption
+                                      }
+                                    </p>
+                                    <button
+                                      type="button"
+                                      onClick={() => toggleRecursion(index)}
+                                      className="relative w-full max-w-2xl mx-auto rounded-lg overflow-hidden border-4 border-button-primary-bg shadow-2xl hover:opacity-90 transition-opacity cursor-pointer focus:focus-ring"
+                                      aria-label="Click to reveal the infinite recursion"
+                                    >
+                                      <Image
+                                        src={
+                                          item.richContent.recursiveIframe
+                                            ?.placeholderImage ||
+                                          "/portfolio/recursion.jpg"
+                                        }
+                                        alt="Click to reveal recursion"
+                                        width={800}
+                                        height={600}
+                                        className="w-full h-auto"
+                                      />
+                                    </button>
+                                  </div>
+                                ) : (
+                                  // Show the iframe with hide button
+                                  <div className="space-y-4">
+                                    <div className="relative w-full rounded-lg border-4 border-button-primary-bg shadow-2xl overflow-hidden">
+                                      <div className="relative w-full aspect-2/3 md:aspect-square">
+                                        <iframe
+                                          src={getRecursiveUrl()}
+                                          title={
+                                            item.richContent.recursiveIframe
+                                              ?.title || "Recursive Portfolio"
+                                          }
+                                          className="absolute top-0 left-0 w-full h-full border-0"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="text-center">
+                                      <button
+                                        type="button"
+                                        onClick={() => toggleRecursion(index)}
+                                        className="bg-button-primary-bg hover:bg-button-primary-hover text-button-primary-text px-6 py-3 font-medium rounded-lg transition-colors duration-200"
+                                      >
+                                        Hide the Recursion
+                                      </button>
+                                    </div>
+                                  </div>
+                                )
+                              ) : (
+                                <div className="text-center">
+                                  <p className="text-lg font-semibold">
+                                    You did it! You reached the bottom of the
+                                    rabbit hole!
+                                  </p>
+                                </div>
+                              )}
                             </div>
                           )}
 
