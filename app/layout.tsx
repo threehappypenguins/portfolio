@@ -13,6 +13,7 @@ const arimo = Arimo({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sarahpoulin.ca"),
   manifest: "/manifest.json",
   title: "Sarah Poulin",
   description:
