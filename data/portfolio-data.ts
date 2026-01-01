@@ -215,6 +215,26 @@ export const timelineData: TimelineItem[] = [
     },
   },
   {
+    date: "Apr 2025",
+    title: "Data for Good National Datathon",
+    richContent: {
+      description:
+        "A large-scale data mobilization event uniting data enthusiasts, mental health organizations, nonprofit leaders, and volunteers across Canada. My team, \"Team Awesome Sauce\", completed the following:",
+      bullets: [
+        "Used python/pandas to sort through 211 data",
+        "Made meaningful connections between mental health calls and location, weather, and world events",
+        "Presented our findings to groups across Canada",
+      ],
+      technologies: ["python", "pandas", "sql"],
+      links: [
+        {
+          text: "Converge Details",
+          url: "https://www.convergementalhealth.org/event/the-converge---data-for-good-national-datathon-a-movement-for-mental-health-data-innovation",
+        },
+      ],
+    },
+  },
+  {
     date: "Jan 2025",
     title: "Cybersecurity: WordPress Redirect Hack",
     richContent: {
