@@ -62,6 +62,18 @@ export const timelineData: TimelineItem[] = [
     },
   },
   {
+    date: "Nov 2025",
+    title: "Wedding Videography",
+    richContent: {
+      description:
+        "I did the livestream and videography for the wedding ceremony and reception of some friends.",
+      videoUrl: "https://www.youtube.com/embed/wbXVTFWjFpA?si=oTqyznZADb_3k9BI",
+      videoTitle: "Kubik Wedding",
+      videoCaption: "Kubik Wedding Music Video",
+      technologies: ["Canon Rebel SL3", "OBS", "DaVinci Resolve"],
+    },
+  },
+  {
     date: "Oct 2025",
     title: "Programming Fundamentals Quiz App",
     richContent: {
