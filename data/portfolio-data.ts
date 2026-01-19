@@ -28,6 +28,118 @@ export interface TimelineItem {
 
 export const timelineData: TimelineItem[] = [
   {
+    date: "Jan 2026",
+    title: "Second Prize NSCC's IT Campus Hackathon",
+    richContent: {
+      description:
+        "Our challenge was to build a student life app. It was to be designed to improve life for the student body at IT Campus. The app we designed and built was a campus booking app that we named Spacebook. For our presentation, we included a live demo on Vercel and provided a QR code that automatically populated the username and password (temporarily for the hackathon judges).",
+      bullets: [
+        "Fetches the class schedule from a mock API which is used in the search to find open classrooms (or labs) which can be booked",
+        "Entire classroom can be booked (private), or just a workstation",
+        "If a workstation is booked, the number of available workstations is updated, and others can also book a workstation",
+        "Project rooms can also be booked",
+        "We had different ways to search for open rooms: cards, interactive map, and schedule blocks",
+        "Bookings in progress displayed as active, and can be marked as left early",
+        "Must also check in when arriving to keep the booking",
+        "Show the chosen room on the map in a modal",
+        "Implemented an AI chat agent (using Gemini) to fetch room suggestions for a more personalized experience"
+      ],
+      technologies: ["Next.js", "Supabase", "PostgreSQL", "Tailwind", "Vercel", "Inkscape", "Vector Graphics"],
+      links: [
+        {
+          text: "View Project",
+          url: "https://github.com/threehappypenguins/campus-booking",
+        },
+        {
+          text: "View Deployment",
+          url: "https://spacebook.sarahpoulin.ca",
+        },
+      ],
+      images: [
+        {
+          src: "/portfolio/2026-01-17-nscchackathon-team.jpg",
+          alt: "NSCC Hackathon team photo",
+          caption: "Team Photo",
+        },
+        {
+          src: "/portfolio/2026-01-17-nscchackathon-01.png",
+          alt: "Dashboard showing search and upcoming bookings",
+          caption: "Dashboard",
+        },
+        {
+          src: "/portfolio/2026-01-17-nscchackathon-02.png",
+          alt: "Dashboard showing search and upcoming bookings in mobile view",
+          caption: "Dashboard in Mobile View",
+        },
+        {
+          src: "/portfolio/2026-01-17-nscchackathon-03.png",
+          alt: "AI chat agent finding bookings",
+          caption: "AI Chat Agent",
+        },
+        {
+          src: "/portfolio/2026-01-17-nscchackathon-04.png",
+          alt: "Room display map in modal with blue overlay",
+          caption: "Room Display Map in Modal",
+        },
+        {
+          src: "/portfolio/2026-01-17-nscchackathon-05.png",
+          alt: "Room display map in modal with blue overlay in mobile view",
+          caption: "Room Display Map in Modal in Mobile View",
+        },
+        {
+          src: "/portfolio/2026-01-17-nscchackathon-06.png",
+          alt: "Search page displaying various filters",
+          caption: "Search Page With Filters",
+        },
+        {
+          src: "/portfolio/2026-01-17-nscchackathon-07.png",
+          alt: "Map showing available and unavailable rooms",
+          caption: "Map Page With Available and Unavailable Rooms",
+        },
+        {
+          src: "/portfolio/2026-01-17-nscchackathon-08.png",
+          alt: "Map showing available and unavailable rooms in mobile view",
+          caption: "Map Page With Available and Unavailable Rooms in Mobile View",
+        },
+        {
+          src: "/portfolio/2026-01-17-nscchackathon-09.png",
+          alt: "Block schedule showing entire day of available rooms",
+          caption: "Block Schedule Showing Available Rooms",
+        },
+        {
+          src: "/portfolio/2026-01-17-nscchackathon-10.png",
+          alt: "Block schedule showing entire day of available rooms in mobile view",
+          caption: "Block Schedule Showing Available Rooms in Mobile View",
+        },
+        {
+          src: "/portfolio/2026-01-17-nscchackathon-11.png",
+          alt: "Booking page with options to book a workstation or private",
+          caption: "Booking Page",
+        },
+        {
+          src: "/portfolio/2026-01-17-nscchackathon-12.png",
+          alt: "Booking page with options to book a workstation or private in mobile view",
+          caption: "Booking Page in Mobile View",
+        },
+        {
+          src: "/portfolio/2026-01-17-nscchackathon-13.png",
+          alt: "Bookings display showing current, past, or cancelled bookings",
+          caption: "Bookings Display",
+        },
+        {
+          src: "/portfolio/2026-01-17-nscchackathon-14.png",
+          alt: "Settings page",
+          caption: "Settings Page",
+        },
+        {
+          src: "/portfolio/2026-01-17-nscchackathon-15.png",
+          alt: "Modal with option to invite a friend by email or copy link",
+          caption: "Invite a Friend Modal",
+        },
+      ],
+    },
+  },
+  {
     date: "Nov 2025",
     title: "My Portfolio",
     richContent: {
@@ -381,7 +493,7 @@ export const timelineData: TimelineItem[] = [
   },
   {
     date: "May 2014 — 2018",
-    title: "User Experience Tester",
+    title: "UX Tester (Independent)",
     richContent: {
       description: "Usability tester with UserTesting.",
       bullets: [
