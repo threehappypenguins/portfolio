@@ -42,7 +42,8 @@ export const timelineData: TimelineItem[] = [
         "Bookings in progress displayed as active, and can be marked as left early",
         "Must also check in when arriving to keep the booking",
         "Show the chosen room on the map in a modal",
-        "Implemented an AI chat agent (using Gemini) to fetch room suggestions for a more personalized experience"
+        "Implemented an AI chat agent (using Gemini) to fetch room suggestions for a more personalized experience",
+        "Map was created with Inkscape (2D Vector Graphics) and each room was drawn over with a path that contained an ID to target with a coloured overlay."
       ],
       technologies: ["Next.js", "Supabase", "PostgreSQL", "Tailwind", "Vercel", "Inkscape", "Vector Graphics"],
       links: [
