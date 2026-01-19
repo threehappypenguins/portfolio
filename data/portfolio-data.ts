@@ -32,7 +32,7 @@ export const timelineData: TimelineItem[] = [
     title: "Second Prize NSCC's IT Campus Hackathon",
     richContent: {
       description:
-        "Our challenge was to build a student life app. It was to be designed to improve life for the student body at IT Campus. The app we designed and built was a campus booking app that we named Spacebook. For our presentation, we included a live demo on Vercel and provided a QR code that automatically populated the username and password (temporarily for the hackathon judges).",
+        "Our challenge was to build a student life app. It was to be designed to improve life for the student body at IT Campus. The app we designed and built was a campus booking app that we named Spacebook. For our presentation, we included a live demo on Vercel and provided a QR code that automatically populated the username and password (temporarily for the hackathon judges). As team captain, I scaffolded the project to Github and created a scrum board to prioritize issues since we had about 1 week to complete our app.",
       bullets: [
         "Fetches the class schedule from a mock API which is used in the search to find open classrooms (or labs) which can be booked",
         "Entire classroom can be booked (private), or just a workstation",
