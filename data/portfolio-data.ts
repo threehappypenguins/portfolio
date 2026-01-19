@@ -63,6 +63,11 @@ export const timelineData: TimelineItem[] = [
           caption: "Team Photo",
         },
         {
+          src: "/portfolio/2026-01-17-nscchackathon-team.jpg",
+          alt: "NSCC Hackathon team photo with faculty and judges",
+          caption: "Team Photo With Faculty and Judges",
+        },
+        {
           src: "/portfolio/2026-01-17-nscchackathon-01.png",
           alt: "Dashboard showing search and upcoming bookings",
           caption: "Dashboard",
