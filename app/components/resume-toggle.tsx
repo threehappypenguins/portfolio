@@ -34,7 +34,7 @@ export function ResumeToggle() {
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/resume.pdf";
+    link.href = "/documents/Sarah Poulin Resume (ATS).pdf";
     link.download = "Sarah Poulin Resume.pdf";
     document.body.appendChild(link);
     link.click();
@@ -75,7 +75,7 @@ export function ResumeToggle() {
               className="w-full px-3 py-2 text-left flex items-center gap-3 hover:bg-foreground/10 transition-colors"
             >
               <Download size={16} />
-              <span>Download Resume</span>
+              <span>Download ATS-Friendly Resume</span>
             </button>
           </div>
         </div>
