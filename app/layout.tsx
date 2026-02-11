@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     title: "Sarah Poulin",
     description:
       "Welcome to my portfolio. Check out my latest projects! | Full Stack Dev",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.png"],
   },
 };
 
