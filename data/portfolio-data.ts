@@ -28,6 +28,71 @@ export interface TimelineItem {
 
 export const timelineData: TimelineItem[] = [
   {
+    date: "Feb 2026",
+    title: "Shoreline Woodworks Website",
+    richContent: {
+      description:
+        "This was my Collaborative Tools for Application Development course project at NSCC. I, along with five other developers, created a website for a local carpenter who is able to upload photos and modify certain website details using Google OAuth authentication. I acted as Project Manager, creating documentation and assigning issues on the Kanban board. I continue to maintain the project independently.",
+      bullets: [
+        "Next.js + Tailwind + PostgreSQL for tech stack.",
+        "Local dev environment used PostgreSQL Docker container, but prod uses Neon.",
+        "Photos are uploaded to Cloudinary, and indexed in the database, with Prisma acting as a db UI.",
+        "Created issues on the Kanban board and maintained upstream repo.",
+        "All developers forked upstream and followed standard git practices such as pushing to a branch in origin and opening a PR to be merged into upstream main.",
+        "Contributed to code as well by scaffolding, implementing Google OAuth, making three of the four pages editable from their respective pages (only for those authorized), creating the project uploader, and other important refinements.",
+        "Met with client and set up all necessary accounts and access, set up domain, deployed on Vercel.",
+        "No signup allowed and is controlled with an environment variable where only the Google accounts added are authorized."
+      ],
+      technologies: ["Next.js", "Neon", "PostgreSQL", "Prisma", "Cloudinary", "Tailwind", "Vercel", "Cloudflare", "Kanban", "Git", "Github Actions", "CI/CD", "Vitest", "Cypress"],
+      links: [
+        {
+          text: "View Original Upstream Repo",
+          url: "https://github.com/sarahpoulin/final-project-group3",
+        },
+        {
+          text: "View Independent Project",
+          url: "https://github.com/threehappypenguins/shorelineww",
+        },
+        {
+          text: "View Website",
+          url: "https://www.shorelinewoodworks.ca/",
+        },
+      ],
+      images: [
+        {
+          src: "/portfolio/shorelineww1.jpg",
+          alt: "Landing page with editable hero",
+          caption: "Landing Page with Editable Hero Image and Text",
+        },
+        {
+          src: "/portfolio/shorelineww2.jpg",
+          alt: "Projects uploader",
+          caption: "Projects Uploader which is accessed on projects page when authenticated",
+        },
+        {
+          src: "/portfolio/shorelineww3.jpg",
+          alt: "Project cards can be edited",
+          caption: "Projects cards can be edited",
+        },
+        {
+          src: "/portfolio/shorelineww4.jpg",
+          alt: "Project editor with thumbnail selector",
+          caption: "Projects  can be edited and details changed, including thumbnails changed",
+        },
+        {
+          src: "/portfolio/shorelineww5.jpg",
+          alt: "Editable about page",
+          caption: "About page can be fully edited",
+        },
+        {
+          src: "/portfolio/shorelineww6.jpg",
+          alt: "Admin dashboard with tag editor",
+          caption: "Tags can be modified from the admin dashboard",
+        },
+      ],
+    },
+  },
+  {
     date: "Jan 2026",
     title: "Second Prize NSCC's IT Campus Hackathon",
     richContent: {
