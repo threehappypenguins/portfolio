@@ -62,10 +62,12 @@ export default function ContactForm() {
       const container = document.getElementById("turnstile-container");
       if (!container || widgetIdRef.current) return;
 
+      // Use current viewport so initial load on mobile gets "compact" (script loads async and would otherwise use stale state)
+      const size = getTurnstileSize();
       const id = window.turnstile.render("#turnstile-container", {
         sitekey,
         theme: resolvedTheme === "dark" ? "dark" : "light",
-        size: turnstileSize,
+        size,
         callback: (token: string) => {
           setCaptchaToken(token);
           setErrors((prev) => (prev.captcha ? { ...prev, captcha: false } : prev));
