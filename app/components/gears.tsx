@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 // Adjust scroll multiplier to control rotation speed
@@ -11,8 +12,8 @@ const GEAR2_RADIUS = 56; // w-56 → 112px, radius = 56
 const GEAR_2_SPEED_RATIO = GEAR1_RADIUS / GEAR2_RADIUS; // 0.5714
 
 export default function ScrollGears() {
-  const gear1Ref = useRef<HTMLImageElement>(null);
-  const gear2Ref = useRef<HTMLImageElement>(null);
+  const gear1Ref = useRef<HTMLDivElement>(null);
+  const gear2Ref = useRef<HTMLDivElement>(null);
 
   const lastScrollY = useRef(0);
   const rotation = useRef(0);
@@ -55,18 +56,30 @@ export default function ScrollGears() {
 
   return (
     <div className="gear-group relative w-52 h-44 sm:w-64 sm:h-64 mx-auto my-12 sm:my-24">
-      <img
+      <div
         ref={gear1Ref}
-        src="/gear1.svg"
-        alt="Gear 1"
         className="absolute -left-1 top-3/4 w-24 h-24 sm:-left-10 sm:top-3/4 sm:w-40 sm:h-40 -translate-y-1/2 origin-center transform-gpu"
-      />
-      <img
+      >
+        <Image
+          src="/gear1.svg"
+          alt="Gear 1"
+          width={160}
+          height={160}
+          className="w-full h-full"
+        />
+      </div>
+      <div
         ref={gear2Ref}
-        src="/gear2.svg"
-        alt="Gear 2"
         className="absolute left-12 top-1/4 w-42 h-42 sm:left-15 sm:top-1/4 sm:w-64 sm:h-64 -translate-y-1/2 origin-center transform-gpu"
-      />
+      >
+        <Image
+          src="/gear2.svg"
+          alt="Gear 2"
+          width={256}
+          height={256}
+          className="w-full h-full"
+        />
+      </div>
     </div>
   );
 }

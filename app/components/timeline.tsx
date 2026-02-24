@@ -28,27 +28,32 @@ export function Timeline() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const params = new URLSearchParams(window.location.search);
-    const depth = parseInt(params.get("depth") || "0", 10);
-    setRecursionDepth(depth);
+    const run = () => {
+      const params = new URLSearchParams(window.location.search);
+      const depth = parseInt(params.get("depth") || "0", 10);
+      setRecursionDepth(depth);
 
-    // Auto-expand recursion item if we're in a nested iframe
-    if (depth > 0) {
-      const recursionIndex = timelineData.findIndex(
-        (item) => item.richContent.recursiveIframe
-      );
+      // Auto-expand recursion item if we're in a nested iframe
+      if (depth > 0) {
+        const recursionIndex = timelineData.findIndex(
+          (item) => item.richContent.recursiveIframe
+        );
 
-      if (recursionIndex !== -1) {
-        setExpandedIndex(recursionIndex);
+        if (recursionIndex !== -1) {
+          setExpandedIndex(recursionIndex);
 
-        setTimeout(() => {
-          contentRefs.current[recursionIndex]?.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-          });
-        }, 100);
+          setTimeout(() => {
+            contentRefs.current[recursionIndex]?.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+          }, 100);
+        }
       }
-    }
+    };
+
+    const id = setTimeout(run, 0);
+    return () => clearTimeout(id);
   }, []);
 
   const handleClick = (index: number) => {

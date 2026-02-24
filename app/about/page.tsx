@@ -24,38 +24,38 @@ export default function About() {
             stopped working, so I found a screwdriver, took it apart, and
             noticed a loose wire. When I would touch the wire to the board,
             suddenly the reels would spin. Success! My dad soldered it back on;
-            good as new. I would look at an interesting idea and think, "I can
-            do that!" My brother and I saw a Beakman and Jax newspaper article
-            in the comics (I'm dating myself here) about how lava lamps work. We
+            good as new. I would look at an interesting idea and think, &quot;I can
+            do that!&quot; My brother and I saw a Beakman and Jax newspaper article
+            in the comics (I&apos;m dating myself here) about how lava lamps work. We
             took it upon ourselves to use a lamp without a shade, a mason jar, a
             coil, some water and wax, and copious amounts of duct tape (thank
-            you, Red Green), and built ourselves a lava lamp. It didn't work, we
+            you, Red Green), and built ourselves a lava lamp. It didn&apos;t work, we
             could have possibly electrocuted ourselves, and my dad was mad, but
-            it was a great learning experience. My "I can do that!" attitude
-            earned me two broken arms simultaneously as well, but I won't go
-            into the details on that one. Let's just say it involved the
+            it was a great learning experience. My &quot;I can do that!&quot; attitude
+            earned me two broken arms simultaneously as well, but I won&apos;t go
+            into the details on that one. Let&apos;s just say it involved the
             schoolyard, competitiveness with boys, and soccer posts.
           </p>
 
           <p>
             As an adult, I learned to fix things myself to save money, including
-            my own vehicles. I need a strut. I'll go to the junk yard and get
-            one and install it. I think my starter motor is done. I'll take it
-            out and hook up some alligator clips to a battery to see if it's the
+            my own vehicles. I need a strut. I&apos;ll go to the junk yard and get
+            one and install it. I think my starter motor is done. I&apos;ll take it
+            out and hook up some alligator clips to a battery to see if it&apos;s the
             problem. Yep. Install a rebuilt one. My van is stuttering up hills.
-            I'll hook up a bluetooth OBDII scanner to my phone, run some
-            diagnostics, discover there's a misfire on cylinder 6, remove the
+            I&apos;ll hook up a bluetooth OBDII scanner to my phone, run some
+            diagnostics, discover there&apos;s a misfire on cylinder 6, remove the
             manifold and swap the spark plug boot/coil with a working cylinder.
-            Yep. It's the ignition coil. I really need a dishwasher. I'll add a
+            Yep. It&apos;s the ignition coil. I really need a dishwasher. I&apos;ll add a
             dishwasher wye to the drainage under the sink, install a shutoff
-            valve and tee, and run PEX to the planned dishwasher area. I'll
+            valve and tee, and run PEX to the planned dishwasher area. I&apos;ll
             drill through the joists in the basement, and run 14/2 wire to a 15
             amp breaker.
           </p>
 
           <p>
             Jumping into something new and accomplishing it is nothing new to
-            me. I'll figure it out. Just let me loose.
+            me. I&apos;ll figure it out. Just let me loose.
           </p>
         </div>
       </div>

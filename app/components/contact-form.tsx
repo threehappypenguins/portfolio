@@ -6,7 +6,7 @@ import { Send } from "lucide-react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 export default function ContactForm() {
-  const { theme, resolvedTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [captchaSize, setCaptchaSize] = useState<"normal" | "compact">(
     "compact"
@@ -304,7 +304,7 @@ export default function ContactForm() {
                 Message Sent!
               </h1>
               <p className="text-card-text mb-6">
-                Thank you for reaching out. I'll get back to you soon!
+                Thank you for reaching out. I&apos;ll get back to you soon!
               </p>
               <div className="flex justify-center">
                 <button

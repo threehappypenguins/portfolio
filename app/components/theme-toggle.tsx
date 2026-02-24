@@ -11,6 +11,7 @@ export function ThemeToggle() {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- client-only mount guard for next-themes
     setMounted(true);
   }, []);
 

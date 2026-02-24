@@ -17,7 +17,7 @@ export default function Home() {
           className="mx-auto"
         />
 
-        <h1 className="hero-heading">Hi, I'm Sarah!</h1>
+        <h1 className="hero-heading">Hi, I&apos;m Sarah!</h1>
 
         <p className="text-xl md:text-2xl text-center">
           Full Stack Developer | Tech Aficionado | Problem Solver | Curious Mind
