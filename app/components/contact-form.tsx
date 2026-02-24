@@ -5,7 +5,6 @@ import { useTheme } from "next-themes";
 import { Send } from "lucide-react";
 
 const TURNSTILE_SCRIPT = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
-const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 
 export default function ContactForm() {
   const { resolvedTheme } = useTheme();
@@ -136,29 +135,18 @@ export default function ContactForm() {
 
     setIsSubmitting(true);
 
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
-    if (!accessKey) {
-      alert("Form is not configured. Please contact the site owner.");
-      setIsSubmitting(false);
-      return;
-    }
-
     try {
-      // Submit directly to Web3Forms from the browser to avoid 403 (Cloudflare blocks server-side requests to api.web3forms.com unless whitelisted).
-      // With Web3Forms Pro you can add your Turnstile secret in their dashboard so they validate the token.
-      const response = await fetch(WEB3FORMS_URL, {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: accessKey,
           name: formData.name,
           email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          replyto: formData.email,
           "cf-turnstile-response": captchaToken,
         }),
       });

@@ -1,13 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-/**
- * Contact API: validates Turnstile and forwards to Web3Forms.
- * Not used by default: the form submits directly to Web3Forms from the client to avoid
- * 403 from Cloudflare (api.web3forms.com blocks server-side requests unless whitelisted).
- * Kept for use if you later get Web3Forms server IP whitelisting or switch to another backend.
- */
 const TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
-const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 
 export async function POST(request: NextRequest) {
   let body: Record<string, unknown>;
@@ -37,7 +30,7 @@ export async function POST(request: NextRequest) {
 
   const secret = process.env.TURNSTILE_SECRET_KEY;
   if (!secret) {
-    console.error("TURNSTILE_SECRET_KEY is not configured (set it in Vercel env vars)");
+    console.error("TURNSTILE_SECRET_KEY is not configured");
     return NextResponse.json(
       { success: false, message: "Server configuration error." },
       { status: 500 }
@@ -49,6 +42,7 @@ export async function POST(request: NextRequest) {
   const subject = typeof body.subject === "string" ? body.subject : "";
   const message = typeof body.message === "string" ? body.message : "";
 
+  // 1. Verify Turnstile with Cloudflare
   let verifyResult: { success?: boolean; "error-codes"?: string[] };
   try {
     const verifyResponse = await fetch(TURNSTILE_VERIFY_URL, {
@@ -79,56 +73,61 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const accessKey = process.env.WEB3FORMS_KEY ?? process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
-  if (!accessKey) {
-    console.error("WEB3FORMS_KEY / NEXT_PUBLIC_WEB3FORMS_KEY is not configured (set it in Vercel env vars)");
+  // 2. Send email via Mailgun
+  const apiKey = process.env.MAILGUN_API_KEY;
+  const domain = process.env.MAILGUN_DOMAIN;
+  const fromAddr = process.env.MAILGUN_FROM;
+  const toAddr = process.env.MAILGUN_TO;
+
+  if (!apiKey || !domain || !fromAddr || !toAddr) {
+    console.error("Mailgun not configured: set MAILGUN_API_KEY, MAILGUN_DOMAIN, MAILGUN_FROM, MAILGUN_TO");
     return NextResponse.json(
-      { success: false, message: "Form is not configured." },
+      { success: false, message: "Email is not configured." },
       { status: 500 }
     );
   }
 
-  let web3Response: Response;
+  const mailgunHost = process.env.MAILGUN_HOST ?? "https://api.mailgun.net";
+  const url = `${mailgunHost}/v3/${domain}/messages`;
+
+  const plainBody = [
+    `From: ${name} <${email}>`,
+    `Subject: ${subject}`,
+    "",
+    message,
+  ].join("\n");
+
+  const form = new FormData();
+  form.append("from", fromAddr);
+  form.append("to", toAddr);
+  form.append("subject", subject.trim() || "(no subject)");
+  form.append("text", plainBody);
+  form.append("h:Reply-To", email);
+
   try {
-    web3Response = await fetch(WEB3FORMS_URL, {
+    const mailResponse = await fetch(url, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
+        Authorization: "Basic " + Buffer.from("api:" + apiKey).toString("base64"),
       },
-      body: JSON.stringify({
-        access_key: accessKey,
-        name,
-        email,
-        subject,
-        message,
-        replyto: email,
-      }),
+      body: form,
     });
+
+    if (!mailResponse.ok) {
+      const errText = await mailResponse.text();
+      console.error("Mailgun error %d: %s", mailResponse.status, errText.slice(0, 500));
+      return NextResponse.json(
+        { success: false, message: "Could not send message. Please try again later." },
+        { status: 502 }
+      );
+    }
+
+    return NextResponse.json({ success: true });
   } catch (err) {
-    console.error("Web3Forms request failed:", err);
+    console.error("Mailgun request failed:", err);
     return NextResponse.json(
       { success: false, message: "Could not send message. Please try again." },
       { status: 502 }
     );
   }
-
-  const contentType = web3Response.headers.get("content-type") ?? "";
-  if (!contentType.includes("application/json")) {
-    const text = await web3Response.text();
-    console.error("Web3Forms returned non-JSON (status %d). Body: %s", web3Response.status, text.slice(0, 500));
-    const is403 = web3Response.status === 403;
-    return NextResponse.json(
-      {
-        success: false,
-        message: is403
-          ? "The form service is blocking this request (often happens in local dev). Try deploying to production, or check your Web3Forms key."
-          : "The form service returned an error. Please check your Web3Forms access key and try again.",
-      },
-      { status: 502 }
-    );
-  }
-
-  const result = (await web3Response.json()) as { success?: boolean; message?: string };
-  return NextResponse.json(result);
 }

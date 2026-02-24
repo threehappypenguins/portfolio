@@ -14,16 +14,13 @@ The application uses the Next.js App Router and a collection of custom component
 
 ## Contact form
 
-The contact page uses [Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/) for bot protection and [Web3Forms](https://web3forms.com) for delivery. The form submits **from the browser** to Web3Forms so Cloudflare does not block the request (server-side calls to api.web3forms.com often get 403 unless your server IP is whitelisted).
+1. **Frontend:** The contact page uses [Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/) and submits the form plus the `cf-turnstile-response` token to **`/api/contact`**.
+2. **API route:** `/api/contact` verifies the token with Cloudflare, then sends the message via the [Mailgun API](https://documentation.mailgun.com/docs/mailgun/user-manual/sending-messages/send-http). No third-party form service is used.
 
 Copy `.env.example` to `.env.local` and set:
 
-- `NEXT_PUBLIC_WEB3FORMS_KEY` – Web3Forms access key (public; used in the client)
-- `NEXT_PUBLIC_TURNSTILE_SITEKEY` – Turnstile widget sitekey (public)
-
-For **Turnstile token validation** with Web3Forms you need [Web3Forms Pro](https://web3forms.com): in the Web3Forms dashboard add your Turnstile secret and choose Turnstile as the captcha provider. Without Pro, submissions still go through but Web3Forms will not validate the Turnstile token.
-
-For local testing use [Turnstile’s testing keys](https://developers.cloudflare.com/turnstile/troubleshooting/testing/) (e.g. sitekey `1x00000000000000000000AA`). The route `/api/contact` is kept in the repo but not used by the form; it can be used if you later switch to a server-side flow (e.g. IP whitelisting).
+- **Turnstile:** `NEXT_PUBLIC_TURNSTILE_SITEKEY`, `TURNSTILE_SECRET_KEY` (use [testing keys](https://developers.cloudflare.com/turnstile/troubleshooting/testing/) locally).
+- **Mailgun:** `MAILGUN_API_KEY`, `MAILGUN_DOMAIN`, `MAILGUN_FROM`, `MAILGUN_TO`. For EU, set `MAILGUN_HOST=https://api.eu.mailgun.net`.
 
 ## Notes
-This project is primarily client-side. The contact form posts to Web3Forms from the client. All other assets and data are stored locally.
+This project is primarily client-side. The contact form is handled by the `/api/contact` route (Turnstile + Mailgun). All other assets and data are stored locally.

@@ -19,7 +19,7 @@ const nextConfig: NextConfig = {
             value: [
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com https://va.vercel-scripts.com https://static.cloudflareinsights.com",
               "frame-src 'self' https://challenges.cloudflare.com",
-              "connect-src 'self' https://challenges.cloudflare.com https://api.web3forms.com https://va.vercel-scripts.com https://static.cloudflareinsights.com",
+              "connect-src 'self' https://challenges.cloudflare.com https://va.vercel-scripts.com https://static.cloudflareinsights.com",
             ].join("; "),
           },
         ],
