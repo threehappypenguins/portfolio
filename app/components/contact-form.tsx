@@ -5,10 +5,17 @@ import { useTheme } from "next-themes";
 import { Send } from "lucide-react";
 
 const TURNSTILE_SCRIPT = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+const TURNSTILE_MOBILE_BREAKPOINT = 640;
+
+function getTurnstileSize(): "compact" | "flexible" {
+  if (typeof window === "undefined") return "flexible";
+  return window.innerWidth < TURNSTILE_MOBILE_BREAKPOINT ? "compact" : "flexible";
+}
 
 export default function ContactForm() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [turnstileSize, setTurnstileSize] = useState<"compact" | "flexible">("flexible");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -31,6 +38,15 @@ export default function ContactForm() {
     setMounted(true);
   }, []);
 
+  // Use compact Turnstile on narrow viewports to avoid overflow; update on resize
+  useEffect(() => {
+    if (!mounted) return;
+    setTurnstileSize(getTurnstileSize());
+    const onResize = () => setTurnstileSize(getTurnstileSize());
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [mounted]);
+
   // Load Turnstile script and render widget (avoid loading script twice — e.g. when navigating back to contact)
   useEffect(() => {
     if (!mounted) return;
@@ -49,7 +65,7 @@ export default function ContactForm() {
       const id = window.turnstile.render("#turnstile-container", {
         sitekey,
         theme: resolvedTheme === "dark" ? "dark" : "light",
-        size: "flexible",
+        size: turnstileSize,
         callback: (token: string) => {
           setCaptchaToken(token);
           setErrors((prev) => (prev.captcha ? { ...prev, captcha: false } : prev));
@@ -92,9 +108,9 @@ export default function ContactForm() {
         window.turnstile.remove(widgetIdRef.current);
         widgetIdRef.current = null;
       }
-      script.remove();
+      // Don't remove script so resize/theme changes only re-render the widget, not re-load the script
     };
-  }, [mounted, resolvedTheme]);
+  }, [mounted, resolvedTheme, turnstileSize]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
