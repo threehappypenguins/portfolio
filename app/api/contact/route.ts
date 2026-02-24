@@ -1,5 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 
+/**
+ * Contact API: validates Turnstile and forwards to Web3Forms.
+ * Not used by default: the form submits directly to Web3Forms from the client to avoid
+ * 403 from Cloudflare (api.web3forms.com blocks server-side requests unless whitelisted).
+ * Kept for use if you later get Web3Forms server IP whitelisting or switch to another backend.
+ */
 const TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 
