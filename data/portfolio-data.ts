@@ -276,7 +276,7 @@ export const timelineData: TimelineItem[] = [
           url: "https://programming-quizzes.onrender.com/",
         },
       ],
-      technologies: ["Flask", "Python"],
+      technologies: ["Flask", "Python", "Render"],
     },
   },
   {
