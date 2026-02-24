@@ -49,7 +49,7 @@ export default function ContactForm() {
       const id = window.turnstile.render("#turnstile-container", {
         sitekey,
         theme: resolvedTheme === "dark" ? "dark" : "light",
-        size: "normal",
+        size: "flexible",
         callback: (token: string) => {
           setCaptchaToken(token);
           setErrors((prev) => (prev.captcha ? { ...prev, captcha: false } : prev));
@@ -296,7 +296,7 @@ export default function ContactForm() {
           </div>
 
           {/* Cloudflare Turnstile */}
-          <div>
+          <div className="min-w-0 max-w-full overflow-hidden">
             {mounted && <div id="turnstile-container" />}
             {errors.captcha && (
               <p className="text-red-500 text-sm mt-2">
