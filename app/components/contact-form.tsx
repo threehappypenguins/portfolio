@@ -31,7 +31,7 @@ export default function ContactForm() {
     setMounted(true);
   }, []);
 
-  // Load Turnstile script and render widget in onload (avoid turnstile.ready() which fails with dynamic/async script loading)
+  // Load Turnstile script and render widget (avoid loading script twice — e.g. when navigating back to contact)
   useEffect(() => {
     if (!mounted) return;
 
@@ -60,10 +60,26 @@ export default function ContactForm() {
       widgetIdRef.current = id;
     };
 
+    // Turnstile already in page (e.g. navigated back to contact) — just render, don’t add script again
+    if (typeof window !== "undefined" && window.turnstile) {
+      renderWidget();
+      return () => {
+        if (widgetIdRef.current && window.turnstile) {
+          window.turnstile.remove(widgetIdRef.current);
+          widgetIdRef.current = null;
+        }
+      };
+    }
+
     const existing = document.querySelector(`script[src="${TURNSTILE_SCRIPT}"]`);
     if (existing) {
       renderWidget();
-      return;
+      return () => {
+        if (widgetIdRef.current && window.turnstile) {
+          window.turnstile.remove(widgetIdRef.current);
+          widgetIdRef.current = null;
+        }
+      };
     }
 
     const script = document.createElement("script");
