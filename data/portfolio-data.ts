@@ -43,18 +43,22 @@ export const timelineData: TimelineItem[] = [
         "Met with client and set up all necessary accounts and access, set up domain, deployed on Vercel.",
         "No signup allowed and is controlled with an environment variable where only the Google accounts added are authorized."
       ],
-      technologies: ["Next.js", "Neon", "PostgreSQL", "Prisma", "Cloudinary", "Tailwind", "Vercel", "Cloudflare", "Kanban", "Git", "Github Actions", "CI/CD", "Vitest", "Cypress"],
+      technologies: ["Next.js", "Neon", "PostgreSQL", "Prisma", "Cloudinary", "Tailwind", "Vercel", "Cloudflare", "Kanban", "Git", "Github Actions", "CI/CD", "Vitest", "Cypress", "VitePress", "TypeDoc", "htmldocs"],
       links: [
         {
-          text: "View Original Upstream Repo",
+          text: "Original Upstream Repo",
           url: "https://github.com/sarahpoulin/final-project-group3",
         },
         {
-          text: "View Independent Project",
+          text: "VitePress Docs",
+          url: "https://nscc-itc-winter2026-webd5020-701-mcr.github.io/final-project-group3/",
+        },
+        {
+          text: "Independent Project",
           url: "https://github.com/threehappypenguins/shorelineww",
         },
         {
-          text: "View Website",
+          text: "Website",
           url: "https://www.shorelinewoodworks.ca/",
         },
       ],
