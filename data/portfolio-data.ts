@@ -47,7 +47,7 @@ export const timelineData: TimelineItem[] = [
       links: [
         {
           text: "Original Upstream Repo",
-          url: "https://github.com/sarahpoulin/final-project-group3",
+          url: "https://github.com/NSCC-ITC-Winter2026-WEBD5020-701-MCr/final-project-group3",
         },
         {
           text: "VitePress Docs",
