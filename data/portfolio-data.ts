@@ -215,6 +215,27 @@ export const timelineData: TimelineItem[] = [
     },
   },
   {
+    date: "Dec 2025 — Present",
+    title: "Full Bellies",
+    richContent: {
+      description:
+        "Full Bellies is an online platform dedicated to addressing food insecurity among students in Nova Scotia.",
+      bullets: [
+        "Rebuilt website on Wix platform.",
+        "Began process to build a widget with Wix CLI (React) that will be integrated into the website.",
+        "Widget will be an application that will fetch an API to look up local sales at grocery stores and find recipes based on those foods.",
+        "Everything is planned so that the non-technical will be able to maintain the site long term."
+      ],
+      links: [
+        {
+          text: "View Website",
+          url: "https://www.fullbellies.ca/",
+        },
+      ],
+      technologies: ["Wix", "Wix CLI", "TypeScript", "React"],
+    },
+  },
+  {
     date: "Nov 2025",
     title: "My Portfolio",
     richContent: {
