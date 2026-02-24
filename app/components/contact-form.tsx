@@ -1,16 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTheme } from "next-themes";
 import { Send } from "lucide-react";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
+
+const TURNSTILE_SCRIPT = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
 
 export default function ContactForm() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [captchaSize, setCaptchaSize] = useState<"normal" | "compact">(
-    "compact"
-  );
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,21 +25,60 @@ export default function ContactForm() {
     message: false,
     captcha: false,
   });
+  const widgetIdRef = useRef<string | null>(null);
 
   useEffect(() => {
     setMounted(true);
+  }, []);
 
-    // Set initial captcha size
-    const updateCaptchaSize = () => {
-      setCaptchaSize(window.innerWidth < 400 ? "compact" : "normal");
+  // Load Turnstile script and render widget in onload (avoid turnstile.ready() which fails with dynamic/async script loading)
+  useEffect(() => {
+    if (!mounted) return;
+
+    const sitekey = process.env.NEXT_PUBLIC_TURNSTILE_SITEKEY;
+    if (!sitekey) {
+      console.warn("NEXT_PUBLIC_TURNSTILE_SITEKEY is not set");
+      return;
+    }
+
+    const renderWidget = () => {
+      if (typeof window === "undefined" || !window.turnstile) return;
+      const container = document.getElementById("turnstile-container");
+      if (!container || widgetIdRef.current) return;
+
+      const id = window.turnstile.render("#turnstile-container", {
+        sitekey,
+        theme: resolvedTheme === "dark" ? "dark" : "light",
+        size: "normal",
+        callback: (token: string) => {
+          setCaptchaToken(token);
+          setErrors((prev) => (prev.captcha ? { ...prev, captcha: false } : prev));
+        },
+        "error-callback": () => setCaptchaToken(""),
+        "expired-callback": () => setCaptchaToken(""),
+      });
+      widgetIdRef.current = id;
     };
 
-    updateCaptchaSize();
+    const existing = document.querySelector(`script[src="${TURNSTILE_SCRIPT}"]`);
+    if (existing) {
+      renderWidget();
+      return;
+    }
 
-    // Optional: Update on window resize
-    window.addEventListener("resize", updateCaptchaSize);
-    return () => window.removeEventListener("resize", updateCaptchaSize);
-  }, []);
+    const script = document.createElement("script");
+    script.src = TURNSTILE_SCRIPT;
+    script.onload = renderWidget;
+    document.body.appendChild(script);
+
+    return () => {
+      if (widgetIdRef.current && window.turnstile) {
+        window.turnstile.remove(widgetIdRef.current);
+        widgetIdRef.current = null;
+      }
+      script.remove();
+    };
+  }, [mounted, resolvedTheme]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -51,7 +88,6 @@ export default function ContactForm() {
       ...formData,
       [name]: value,
     });
-    // Clear error when user starts typing
     if (errors[name as keyof typeof errors]) {
       setErrors({
         ...errors,
@@ -60,19 +96,7 @@ export default function ContactForm() {
     }
   };
 
-  const onHCaptchaChange = (token: string) => {
-    setCaptchaToken(token);
-    // Clear captcha error when verified
-    if (errors.captcha) {
-      setErrors({
-        ...errors,
-        captcha: false,
-      });
-    }
-  };
-
   const handleSubmit = async () => {
-    // Validate all fields
     const newErrors = {
       name: !formData.name.trim(),
       email: !formData.email.trim() || !formData.email.includes("@"),
@@ -83,9 +107,7 @@ export default function ContactForm() {
 
     setErrors(newErrors);
 
-    // Check if there are any errors
     if (Object.values(newErrors).some((error) => error)) {
-      // Scroll to first error
       const firstError = Object.keys(newErrors).find(
         (key) => newErrors[key as keyof typeof newErrors]
       );
@@ -98,37 +120,25 @@ export default function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
-      if (!accessKey) {
-        console.error("Web3Forms access key is not configured");
-        alert("Form submission is not configured. Please contact the site administrator.");
-        setIsSubmitting(false);
-        return;
-      }
-
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: accessKey,
           name: formData.name,
           email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          replyto: formData.email,
-          "h-captcha-response": captchaToken,
+          "cf-turnstile-response": captchaToken,
         }),
       });
 
       const result = await response.json();
 
       if (result.success) {
-        console.log("Form submitted successfully:", result);
         setShowModal(true);
-        // Reset form
         setFormData({
           name: "",
           email: "",
@@ -143,9 +153,11 @@ export default function ContactForm() {
           message: false,
           captcha: false,
         });
+        if (widgetIdRef.current && window.turnstile) {
+          window.turnstile.reset(widgetIdRef.current);
+        }
       } else {
-        console.error("Form submission failed:", result);
-        alert("Failed to send message. Please try again.");
+        alert(result.message ?? "Failed to send message. Please try again.");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -261,20 +273,12 @@ export default function ContactForm() {
             )}
           </div>
 
-          {/* hCaptcha */}
+          {/* Cloudflare Turnstile */}
           <div>
-            {mounted && (
-              <HCaptcha
-                sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
-                onVerify={onHCaptchaChange}
-                reCaptchaCompat={false}
-                theme={resolvedTheme === "dark" ? "dark" : "light"}
-                size={captchaSize}
-              />
-            )}
+            {mounted && <div id="turnstile-container" />}
             {errors.captcha && (
               <p className="text-red-500 text-sm mt-2">
-                Please complete the captcha
+                Please complete the verification
               </p>
             )}
           </div>
