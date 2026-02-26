@@ -230,6 +230,17 @@ h1.hero-heading {
   @apply text-xs px-4 py-2 bg-about-tech-btn hover:bg-about-tech-btn-hover text-about-tech-btn-font rounded-lg;
 }
 
+/* Certifications */
+
+.cert-card-container {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl pb-16;
+}
+
+.cert-card {
+  @apply border border-card-border rounded-lg p-6 bg-card-bg flex gap-4
+         hover:border-blue-400 hover:shadow-md transition-all duration-200 cursor-pointer;
+}
+
 /* Form */
 
 .form-input {

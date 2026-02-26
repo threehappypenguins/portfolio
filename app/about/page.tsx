@@ -1,4 +1,5 @@
 import { Code, Shield, Zap, Users } from "lucide-react";
+import { CertificationCard } from "@/app/components/certification-card";
 
 export default function About() {
   return (
@@ -112,6 +113,135 @@ export default function About() {
           </div>
         </div>
       </div>
+
+      <h2 className="heading-tertiary">Certifications</h2>
+
+      <div className="cert-card-container">
+        <CertificationCard
+          title="Microsoft Certified: Azure Fundamentals"
+          issuer="Microsoft"
+          issued="Issued Jul 2024"
+          credentialId="8C3B283EFC633411"
+          url="https://learn.microsoft.com/en-us/users/sarahpoulin/credentials/8c3b283efc633411"
+        />
+        <CertificationCard
+          title="ShiftKey Academy Up: Cybersecurity Certificate"
+          issuer="ShiftKey Labs"
+          issued="Issued Sep 2024"
+          credentialId="4f0c3e88-3457-4f85-a229-8d33716032f7"
+          url="https://credsverse.com/credentials/4f0c3e88-3457-4f85-a229-8d33716032f7"
+        />
+        <CertificationCard
+          title="Digital Skills for Women"
+          issuer="Digital Nova Scotia"
+          issued="Issued Nov 2024"
+          credentialId="2O_MnGtVQpmDa-iIvgDWVw"
+          url="https://learner.mycreds.ca/badges/public/assertion/2O_MnGtVQpmDa-iIvgDWVw"
+        />
+        <CertificationCard
+          title="ShiftKey Academy Up: Data Analytics with Python Certificate"
+          issuer="ShiftKey Labs"
+          issued="Issued Dec 2024"
+          credentialId="370cb43c-c240-45dc-ad06-e1150835806f"
+          url="https://credsverse.com/credentials/370cb43c-c240-45dc-ad06-e1150835806f"
+        />
+        <CertificationCard
+          title="Level Up with CCubed Cyber Security Bootcamp Certificate"
+          issuer="Computing Councils of Canada"
+          issued="Issued Jul 2025"
+        />
+        <CertificationCard
+          title="Occupational Health & Safety Act (Nova Scotia) Certification"
+          issuer="Nova Scotia Community College - NSCC"
+          issued="Issued Aug 2025"
+        />
+        <CertificationCard
+          title="Workplace Hazardous Materials Information Systems (WHMIS) Certification"
+          issuer="Nova Scotia Community College - NSCC"
+          issued="Issued Aug 2025"
+        />
+        <CertificationCard
+          title="UX Foundations: Research"
+          issuer="LinkedIn"
+          issued="Issued Sep 2025"
+          url="https://www.linkedin.com/learning/certificates/6bb49f08b06a3bec5924fa65a16c0c3a211ba7bae60740f008002d285b3ce8a5"
+        />
+        <CertificationCard
+          title="Figma Essential Training"
+          issuer="LinkedIn"
+          issued="Issued Sep 2025"
+          url="https://www.linkedin.com/learning/certificates/073daca0e024492aef21a1ea3f0caaee6f2fda40376d1c73201794ff067f5d2d"
+        />
+        <CertificationCard
+          title="Accessibility-First Design"
+          issuer="LinkedIn"
+          issued="Issued Sep 2025"
+          url="https://www.linkedin.com/learning/certificates/27d7efe1bb39e866bef1e05e2c25cbc54d3c7fe987fef73ac00c8c6033ee8c30"
+        />
+        <CertificationCard
+          title="HTTP Essential Training"
+          issuer="LinkedIn"
+          issued="Issued Nov 2025"
+          url="https://www.linkedin.com/learning/certificates/49298c53c067c389e12d6612f83b3d4d8b8a4fcf7fe7a7f543954c8539fa9985"
+        />
+        <CertificationCard
+          title="Learning REST APIs"
+          issuer="LinkedIn"
+          issued="Issued Nov 2025"
+          url="https://www.linkedin.com/learning/certificates/44d6f4b0c3a8db63b470dd4a16abb407c644c71edb061071fda6727a8aeb6868"
+        />
+        <CertificationCard
+          title="Learning HTML Canvas"
+          issuer="LinkedIn"
+          issued="Issued Nov 2025"
+          url="https://www.linkedin.com/learning/certificates/b918608d05ab84e8bf2c468770bb52078ec9c8c19c52687a7785e68530ed5aa1"
+        />
+        <CertificationCard
+          title="Introduction to NoSQL"
+          issuer="DataCamp"
+          issued="Issued Jan 2026"
+          url="https://www.datacamp.com/completed/statement-of-accomplishment/course/1953eec14b32b0701495332e5f047d268d619887"
+        />
+        <CertificationCard
+          title="Introduction to NoSQL"
+          issuer="DataCamp"
+          issued="Issued Jan 2026"
+          url="https://www.datacamp.com/completed/statement-of-accomplishment/course/1953eec14b32b0701495332e5f047d268d619887"
+        />
+        <CertificationCard
+          title="MongoDB for SQL Experts"
+          issuer="MongoDB"
+          issued="Issued Jan 2026"
+          credentialId="MDBgl0zvcn5p6"
+          url="https://learn.mongodb.com/c/i5YgaktYReSU95HQB4Fb6A"
+        />
+        <CertificationCard
+          title="Modeling Data Relationships"
+          issuer="MongoDB"
+          issued="Issued Jan 2026"
+          credentialId="MDB1rblrxzkih"
+          url="https://learn.mongodb.com/c/i5YgaktYReSU95HQB4Fb6A"
+        />
+        <CertificationCard
+          title="Learning Jira (Cloud Edition)"
+          issuer="LinkedIn"
+          issued="Issued Jan 2026"
+          url="https://www.linkedin.com/learning/certificates/ee84700035612680d1b6f379be3fdd6b6dd08488cf38cded41fb71ec2f0ecbef"
+        />
+        <CertificationCard
+          title="Learning Jira Software"
+          issuer="LinkedIn"
+          issued="Issued Jan 2026"
+          url="https://www.linkedin.com/learning/certificates/ef314209831435d62f2dbd2dd9d1204af98ebbf96f71ede6b806874aca6d78ce"
+        />
+        <CertificationCard
+          title="TypeScript for JavaScript Developers"
+          issuer="LinkedIn"
+          issued="Issued Jan 2026"
+          url="https://www.linkedin.com/learning/certificates/92b267d0edbd7045ad8ec5ec20e23fbb9fecf1362c2ee4bbc0cb6168c3780c51"
+        />
+      </div>
+
       <h2 className="heading-tertiary">Skills & Technologies</h2>
 
       <div className="flex flex-wrap justify-center gap-3 max-w-5xl">

@@ -216,7 +216,7 @@ export const timelineData: TimelineItem[] = [
   },
   {
     date: "Dec 2025 — Present",
-    title: "Full Bellies",
+    title: "Full Bellies (Enactus)",
     richContent: {
       description:
         "Full Bellies is an online platform dedicated to addressing food insecurity among students in Nova Scotia.",
@@ -224,13 +224,18 @@ export const timelineData: TimelineItem[] = [
         "Rebuilt website on Wix platform.",
         "Began process to build a widget with Wix CLI (React) that will be integrated into the website.",
         "Widget will be an application that will fetch an API to look up local sales at grocery stores and find recipes based on those foods.",
-        "Everything is planned so that the non-technical will be able to maintain the site long term."
+        "Everything is planned so that the non-technical will be able to maintain the site long term.",
+        "Attended the Atlantic Canada Regional Exposition on Feb 26-27, 2026."
       ],
       links: [
         {
           text: "View Website",
           url: "https://www.fullbellies.ca/",
         },
+        {
+          text: "Enactus Regionals",
+          url: "https://enactus.ca/events/atlantic-canada-exposition/",
+        }
       ],
       technologies: ["Wix", "Wix CLI", "TypeScript", "React"],
     },
