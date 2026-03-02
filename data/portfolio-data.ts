@@ -28,6 +28,34 @@ export interface TimelineItem {
 
 export const timelineData: TimelineItem[] = [
   {
+    date: "Feb-Mar 2026",
+    title: "Fetch2Gmail",
+    richContent: {
+      description:
+        "Google is now phasing out POP3 from Gmail, which means that those who use POP3 to download from another mailbox (such as their ISP mail) will no longer be able to do so with POP3. Many people rely on the larger storage space of Gmail, whereas the ISP mail is significantly smaller. Gmail also offers many more features, as well as other related Google products, and some people do not want to change their email address. I developed Fetch2Mail to run on a Debian-based home NAS, or anywhere that can run Python.",
+      bullets: [
+        "Bridges ISP mail and Gmail — Periodically fetches mail from your ISP mailbox (IMAP) and imports it into Gmail via the Gmail API, so you can keep using Gmail when your provider no longer supports POP3 fetch.",
+        "Self-hosted and private — Runs on your own machine (server, Raspberry Pi, or laptop); your mail and credentials stay under your control.",
+        "Reliable and duplicate-free — Tracks what's already imported (UID + hash), only deletes from the ISP after Gmail has the message, and preserves headers and dates.",
+        "Simple to run — Web UI for setup and config, optional systemd service for hands-off polling, and a CLI for auth and one-off runs."
+      ],
+      technologies: ["Python", "Pipx", "FastAPI", "Gmail API", "IMAP", "OAuth 2.0", "Uvicorn", "systemd"],
+      links: [
+        {
+          text: "View Project",
+          url: "https://github.com/threehappypenguins/fetch2gmail",
+        },
+      ],
+      images: [
+        {
+          src: "/portfolio/fetch2gmail.png",
+          alt: "UI of application",
+          caption: "UI",
+        },
+      ],
+    },
+  },
+  {
     date: "Feb 2026",
     title: "Shoreline Woodworks Website",
     richContent: {
