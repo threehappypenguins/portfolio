@@ -1,4 +1,6 @@
 export interface TimelineItem {
+  /** Optional stable id for hash links (e.g. #fetch2gmail). Lowercase, URL-safe. */
+  id?: string;
   date: string;
   title: string;
   richContent: {
@@ -28,6 +30,7 @@ export interface TimelineItem {
 
 export const timelineData: TimelineItem[] = [
   {
+    id: "fetch2gmail",
     date: "Feb-Mar 2026",
     title: "Fetch2Gmail",
     richContent: {
@@ -56,6 +59,7 @@ export const timelineData: TimelineItem[] = [
     },
   },
   {
+    id: "shoreline-woodworks",
     date: "Feb 2026",
     title: "Shoreline Woodworks Website",
     richContent: {
@@ -269,6 +273,7 @@ export const timelineData: TimelineItem[] = [
     },
   },
   {
+    id: "my-portfolio",
     date: "Nov 2025",
     title: "My Portfolio",
     richContent: {

@@ -1,11 +1,13 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useLayoutEffect, useCallback } from "react";
 import { timelineData, type TimelineItem } from "@/data/portfolio-data";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 export function Timeline() {
+  // No ids until after first layout effect so server/client match and browser never scrolls to hash before we do
+  const [hasMounted, setHasMounted] = useState(false);
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState<{
     [key: number]: number;
@@ -25,36 +27,82 @@ export function Timeline() {
 
   const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
 
+  const getScrollTopForIndex = (index: number) => {
+    const el = contentRefs.current[index];
+    if (!el) return 0;
+    const nav = document.querySelector("nav");
+    const offset = nav ? nav.getBoundingClientRect().height + 8 : 80;
+    return Math.max(0, el.getBoundingClientRect().top + window.scrollY - offset);
+  };
+
+  const expandAndScrollToIndex = useCallback((index: number) => {
+    setExpandedIndex(index);
+    // Wait for expand animation (duration-300) to finish so layout is stable
+    setTimeout(() => {
+      window.scrollTo({
+        top: getScrollTopForIndex(index),
+        behavior: "smooth",
+      });
+    }, 350);
+  }, []);
+
+  // Run before paint: scroll to hash target (no ids in DOM yet so browser can't scroll), then add ids
+  useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
+    const hashSlug = window.location.hash.slice(1).toLowerCase();
+    let index: number | undefined;
+    if (hashSlug) {
+      const i = timelineData.findIndex(
+        (item) => item.id?.toLowerCase() === hashSlug
+      );
+      if (i !== -1) {
+        index = i;
+        window.scrollTo(0, getScrollTopForIndex(i));
+      }
+    }
+    // Defer setState to satisfy react-hooks/set-state-in-effect (avoid cascading sync renders)
+    const raf = requestAnimationFrame(() => {
+      if (index !== undefined) setExpandedIndex(index);
+      setHasMounted(true);
+    });
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const run = () => {
-      const params = new URLSearchParams(window.location.search);
-      const depth = parseInt(params.get("depth") || "0", 10);
+    const params = new URLSearchParams(window.location.search);
+    const depth = parseInt(params.get("depth") || "0", 10);
+    const recursionIndex =
+      depth > 0
+        ? timelineData.findIndex(
+            (item) => item.richContent.recursiveIframe
+          )
+        : -1;
+
+    // Defer setState to satisfy react-hooks/set-state-in-effect
+    const raf = requestAnimationFrame(() => {
       setRecursionDepth(depth);
-
-      // Auto-expand recursion item if we're in a nested iframe
-      if (depth > 0) {
-        const recursionIndex = timelineData.findIndex(
-          (item) => item.richContent.recursiveIframe
-        );
-
-        if (recursionIndex !== -1) {
-          setExpandedIndex(recursionIndex);
-
-          setTimeout(() => {
-            contentRefs.current[recursionIndex]?.scrollIntoView({
-              behavior: "smooth",
-              block: "center",
-            });
-          }, 100);
-        }
+      if (recursionIndex !== -1) {
+        expandAndScrollToIndex(recursionIndex);
       }
+    });
+
+    const onHashChange = () => {
+      const hashSlug = window.location.hash.slice(1).toLowerCase();
+      if (!hashSlug) return;
+      const i = timelineData.findIndex(
+        (item) => item.id?.toLowerCase() === hashSlug
+      );
+      if (i !== -1) expandAndScrollToIndex(i);
     };
 
-    const id = setTimeout(run, 0);
-    return () => clearTimeout(id);
-  }, []);
+    window.addEventListener("hashchange", onHashChange);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("hashchange", onHashChange);
+    };
+  }, [expandAndScrollToIndex]);
 
   const handleClick = (index: number) => {
     setExpandedIndex(expandedIndex === index ? null : index);
@@ -202,7 +250,8 @@ export function Timeline() {
                     ref={(el) => {
                       contentRefs.current[index] = el;
                     }}
-                    className="pt-6 pb-1 cursor-pointer focus:focus-ring rounded-lg"
+                    id={hasMounted ? item.id : undefined}
+                    className={`pt-6 pb-1 cursor-pointer focus:focus-ring rounded-lg${item.id ? " timeline-item-anchor" : ""}`}
                     onClick={() => handleClick(index)}
                     onKeyDown={(e) => handleKeyDown(e, index)}
                     tabIndex={0}
