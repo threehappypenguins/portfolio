@@ -35,9 +35,10 @@ export const timelineData: TimelineItem[] = [
     title: "Fetch2Gmail",
     richContent: {
       description:
-        "Google is now phasing out POP3 from Gmail, which means that those who use POP3 to download from another mailbox (such as their ISP mail) will no longer be able to do so with POP3. Many people rely on the larger storage space of Gmail, whereas the ISP mail is significantly smaller. Gmail also offers many more features, as well as other related Google products, and some people do not want to change their email address. I developed Fetch2Mail to run on a Debian-based home NAS, or anywhere that can run Python.",
+        "Google is phasing out POP3 fetching in Gmail, breaking a workflow many people use to pull small ISP inboxes into Gmail's larger, feature-rich account without changing their ISP address. I built fetch2gmail as a self-hosted bridge (runs on a Debian-based NAS or anywhere Python runs) that is IMAP-in and Gmail-API-out, specifically to recreate Gmail's deprecated POP3 fetch behavior while keeping Gmail as the primary hub. There are hosted bridges and generic fetchmail-style tools, but I couldn't find anything that is self-hosted, IMAP-in, Gmail-API-out, and focused on re-implementing the missing plumbing.",
       bullets: [
-        "Bridges ISP mail and Gmail — Periodically fetches mail from your ISP mailbox (IMAP) and imports it into Gmail via the Gmail API, so you can keep using Gmail when your provider no longer supports POP3 fetch.",
+        `Gmail states: "The option to 'Check mail from other accounts' will no longer be available in Gmail on your computer."`,
+        "Bridges ISP mail and Gmail — Periodically fetches mail from your ISP mailbox (IMAP) and imports it into Gmail via the Gmail API, so you can keep using Gmail when they no longer support POP3 fetch.",
         "Self-hosted and private — Runs on your own machine (server, Raspberry Pi, or laptop); your mail and credentials stay under your control.",
         "Reliable and duplicate-free — Tracks what's already imported (UID + hash), only deletes from the ISP after Gmail has the message, and preserves headers and dates.",
         "Simple to run — Web UI for setup and config, optional systemd service for hands-off polling, and a CLI for auth and one-off runs."
