@@ -30,8 +30,54 @@ export interface TimelineItem {
 
 export const timelineData: TimelineItem[] = [
   {
+    id: "sprint-scholars",
+    date: "Mar 2026 — Present",
+    title: "SPRINT Scholars Award",
+    richContent: {
+      description:
+        "ABStrack is a health symptom tracking application designed to help users log, monitor, and identify patterns in recurring symptoms over time. Originally started prior to formal training, the project has been restarted as a full-stack rebuild using modern tooling and architecture, with a focus on scalability, clean design, data-driven insights, secure data, and accessibility.\n\nThis project is supported by the SPRINT Scholars Award, a competitive applied research fund awarded by Nova Scotia Community College (NSCC). The SPRINT Scholars program supports high-achieving students leading in-depth research initiatives aligned with the United Nations Sustainable Development Goals, with the 2025-2026 theme focused on Health and Well-Being (SDG #3). The award provides funding for student-led projects that address real-world challenges in Nova Scotia through applied research and innovation. I was awarded this funding to support the development of ABStrack as a research-driven health technology project.",
+      technologies: [
+        "TypeScript",
+        "Tailwind",
+        "Nx Monorepo",
+        "pnpm",
+        "Next.js",
+        "Supabase",
+        "PowerSync"
+      ],
+      links: [
+        {
+          text: "View Project",
+          url: "https://github.com/sarahpoulin/ABStrack",
+        },
+        {
+          text: "SPRINT Scholars Award Info",
+          url: "https://www.nscc.ca/appliedresearch/research-news/research-stories/stories/sprint-fund-microgrants-for-student-and-faculty.asp",
+        },
+      ],
+    },
+  },
+  {
+    id: "videosphere",
+    date: "Mar 2026 — Present",
+    title: "VideoSphere",
+    richContent: {
+      description:
+        "VideoSphere is a collaborative class project (myself + 3 other developers) built with Next.js and Appwrite that streamlines multi-platform video distribution. The application allows users to upload a video once, temporarily storing it in Cloudflare R2, and automatically distributing it to multiple video platforms such as YouTube and Vimeo. Once the distribution process is complete, the video is securely removed from R2 to minimize storage costs and improve efficiency.",
+      technologies: [
+        "TypeScript",
+        "Tailwind",
+        "Next.js",
+        "pnpm",
+        "Appwrite",
+        "Cloudflare R2",
+        "OAuth"
+      ],
+    },
+  },
+  {
     id: "fetch2gmail",
-    date: "Feb-Mar 2026",
+    date: "Feb — Mar 2026",
     title: "Fetch2Gmail",
     richContent: {
       description:
@@ -390,7 +436,7 @@ export const timelineData: TimelineItem[] = [
     },
   },
   {
-    date: "Sep 2025 — Present",
+    date: "Aug — Sep 2025",
     title: "ABStrack: Symptom Tracker App",
     richContent: {
       description:
