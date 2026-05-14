@@ -32,7 +32,7 @@ export const timelineData: TimelineItem[] = [
   {
     id: "sprint-scholars",
     date: "Mar 2026 — Present",
-    title: "SPRINT Scholars Award",
+    title: "SPRINT Scholars Award (ABStrack)",
     richContent: {
       description:
         "ABStrack is a health symptom tracking application designed to help users log, monitor, and identify patterns in recurring symptoms over time. Originally started prior to formal training, the project has been restarted as a full-stack rebuild using modern tooling and architecture, with a focus on scalability, clean design, data-driven insights, secure data, and accessibility.\n\nThis project is supported by the SPRINT Scholars Award, a competitive applied research fund awarded by Nova Scotia Community College (NSCC). The SPRINT Scholars program supports high-achieving students leading in-depth research initiatives aligned with the United Nations Sustainable Development Goals, with the 2025-2026 theme focused on Health and Well-Being (SDG #3). The award provides funding for student-led projects that address real-world challenges in Nova Scotia through applied research and innovation. I was awarded this funding to support the development of ABStrack as a research-driven health technology project.",
@@ -46,6 +46,10 @@ export const timelineData: TimelineItem[] = [
         "PowerSync"
       ],
       links: [
+        {
+          text: "View Website",
+          url: "https://abstrack.org/",
+        },
         {
           text: "View Project",
           url: "https://github.com/sarahpoulin/ABStrack",
@@ -431,33 +435,6 @@ export const timelineData: TimelineItem[] = [
           src: "/portfolio/2025-10-18-hubhacks5.png",
           alt: "RBC HubHacks food bank inventory",
           caption: "Food Bank Inventory",
-        },
-      ],
-    },
-  },
-  {
-    date: "Aug — Sep 2025",
-    title: "ABStrack: Symptom Tracker App",
-    richContent: {
-      description:
-        "This application is under heavy development. It is intended to be a tool to track the symptoms of a patient with Autobrewery Syndrome, and provide information for healthcare practitioners.",
-      technologies: [
-        "React Native",
-        "TypeScript",
-        "Tailwind",
-        "Nativewind",
-        "Expo",
-        "Supabase",
-        "PostgreSQL",
-      ],
-      links: [
-        {
-          text: "View Project",
-          url: "https://github.com/threehappypenguins/ABStrack",
-        },
-        {
-          text: "Autobrewery Syndrome",
-          url: "https://www.autobrewery.org/",
         },
       ],
     },
