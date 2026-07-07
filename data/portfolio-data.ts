@@ -52,7 +52,7 @@ export const timelineData: TimelineItem[] = [
         },
         {
           text: "View Project",
-          url: "https://github.com/sarahpoulin/ABStrack",
+          url: "https://github.com/threehappypenguins/ABStrack",
         },
         {
           text: "SPRINT Scholars Award Info",
@@ -67,15 +67,90 @@ export const timelineData: TimelineItem[] = [
     title: "VideoSphere",
     richContent: {
       description:
-        "VideoSphere is a collaborative class project (myself + 3 other developers) built with Next.js and Appwrite that streamlines multi-platform video distribution. The application allows users to upload a video once, temporarily storing it in Cloudflare R2, and automatically distributing it to multiple video platforms such as YouTube and Vimeo. Once the distribution process is complete, the video is securely removed from R2 to minimize storage costs and improve efficiency.",
+        "VideoSphere is started as a collaborative class project (myself + 3 other developers) built with Next.js and Appwrite that streamlines multi-platform video distribution. I have since adopted it as my own personal project and converted the app to use MongoDB instead, which was my original vision for the project. VideoSphere is fully free and open source, and users can spin up an instance in Docker. The application allows users to upload a video once, temporarily storing it in Cloudflare R2, and automatically distributing it to multiple video platforms such as YouTube, Vimeo, Facebook, and Sermon Audio. Once the distribution process is complete, the video is securely removed from R2 to avoid storage costs and improve efficiency.",
+      bullets: [
+        "Uploads to Cloudflare R2 and distributes to multiple platforms, including backup to Google Drive and SFTP or SMB",
+        "Schedules livestreams to YouTube and handles multiple livestream scheduling, automatically changing stream keys",
+        "If a livestream was done and a video was not recorded, VideoSphere can import the livestream from YouTube using yt-dlp, trim using ffprobe to display keyframes and ffmpeg to re-encode the small bit at the beginning/end with the rest as copy"
+      ],
       technologies: [
         "TypeScript",
         "Tailwind",
         "Next.js",
         "pnpm",
-        "Appwrite",
+        "MongoDB",
         "Cloudflare R2",
-        "OAuth"
+        "OAuth",
+        "yt-dlp",
+        "ffprobe",
+        "ffmpeg",
+        "Vitepress"
+      ],
+      links: [
+        {
+          text: "View Project",
+          url: "https://github.com/threehappypenguins/VideoSphere",
+        },
+        {
+          text: "Documentation",
+          url: "https://videosphere.sarahpoulin.ca/",
+        },
+        {
+          text: "Docker Images",
+          url: "https://hub.docker.com/r/threehappypenguins/videosphere",
+        }
+      ],
+      images: [
+        {
+          src: "/portfolio/videosphere-01.png",
+          alt: "dashboard",
+          caption: "Dashboard",
+        },
+        {
+          src: "/portfolio/videosphere-02.png",
+          alt: "mobile dashboard",
+          caption: "Mobile Dashboard",
+        },
+        {
+          src: "/portfolio/videosphere-03.png",
+          alt: "mobile menu",
+          caption: "Mobile Menu",
+        },
+        {
+          src: "/portfolio/videosphere-04.png",
+          alt: "mobile sidebar menu",
+          caption: "Mobile Sidebar Menu",
+        },
+        {
+          src: "/portfolio/videosphere-05.png",
+          alt: "connections page",
+          caption: "Connections Page",
+        },
+        {
+          src: "/portfolio/videosphere-06.png",
+          alt: "mobile connections page",
+          caption: "Mobile Connections Page",
+        },
+        {
+          src: "/portfolio/videosphere-07.png",
+          alt: "upload draft details",
+          caption: "Upload Draft Details",
+        },
+        {
+          src: "/portfolio/videosphere-08.png",
+          alt: "mobile upload draft details",
+          caption: "Mobile Upload Draft Details",
+        },
+        {
+          src: "/portfolio/videosphere-09.png",
+          alt: "upload draft file picker",
+          caption: "Upload Draft File Picker",
+        },
+        {
+          src: "/portfolio/videosphere-10.png",
+          alt: "mobile upload draft file picker",
+          caption: "Mobile Upload Draft File Picker",
+        },
       ],
     },
   },
