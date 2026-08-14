@@ -67,11 +67,13 @@ export const timelineData: TimelineItem[] = [
     title: "VideoSphere",
     richContent: {
       description:
-        "VideoSphere is started as a collaborative class project (myself + 3 other developers) built with Next.js and Appwrite that streamlines multi-platform video distribution. I have since adopted it as my own personal project and converted the app to use MongoDB instead, which was my original vision for the project. VideoSphere is fully free and open source, and users can spin up an instance in Docker. The application allows users to upload a video once, temporarily storing it in Cloudflare R2, and automatically distributing it to multiple video platforms such as YouTube, Vimeo, Facebook, and Sermon Audio. Once the distribution process is complete, the video is securely removed from R2 to avoid storage costs and improve efficiency.",
+        "VideoSphere is started as a collaborative class project (myself + 3 other developers) built with Next.js and Appwrite that streamlines multi-platform video distribution. I have since adopted it as my own personal project and converted the app to use MongoDB instead, which was my original vision for the project. VideoSphere is fully free and open source, and users can spin up an instance in Docker. The application allows users to upload a video once, temporarily storing it in Cloudflare R2, and automatically distributing it to multiple video platforms such as YouTube, Vimeo, Facebook, and Sermon Audio. Once the distribution process is complete, the video is securely removed from R2 to avoid storage costs and improve efficiency. I later added live audio translation for worship services: the operator streams audio from the dashboard (browser mic or RTMP), and congregants open a shareable listen page — no login — to follow real-time captions and optional spoken translation in their language.",
       bullets: [
         "Uploads to Cloudflare R2 and distributes to multiple platforms, including backup to Google Drive and SFTP or SMB",
         "Schedules livestreams to YouTube and handles multiple livestream scheduling, automatically changing stream keys",
-        "If a livestream was done and a video was not recorded, VideoSphere can import the livestream from YouTube using yt-dlp, trim using ffprobe to display keyframes and ffmpeg to re-encode the small bit at the beginning/end with the rest as copy"
+        "If a livestream was done and a video was not recorded, VideoSphere can import the livestream from YouTube using yt-dlp, trim using ffprobe to display keyframes and ffmpeg to re-encode the small bit at the beginning/end with the rest as copy",
+        "Live-translates for church congregants using streaming STT, caption translation, and optional Google Cloud TTS, pinning new captions mid-screen so the live line stays in view",
+        "Classifies owner audio in real time to distinguish speech from singing/music, suppressing lyrical captions and showing a localized music marker (e.g. ♪ Music ♪) instead of garbled lyrics",
       ],
       technologies: [
         "TypeScript",
@@ -84,7 +86,10 @@ export const timelineData: TimelineItem[] = [
         "yt-dlp",
         "ffprobe",
         "ffmpeg",
-        "Vitepress"
+        "Deepgram",
+        "Google Cloud Translation",
+        "Google Cloud TTS",
+        "Vitepress",
       ],
       links: [
         {
@@ -98,7 +103,7 @@ export const timelineData: TimelineItem[] = [
         {
           text: "Docker Images",
           url: "https://hub.docker.com/r/threehappypenguins/videosphere",
-        }
+        },
       ],
       images: [
         {
@@ -150,6 +155,21 @@ export const timelineData: TimelineItem[] = [
           src: "/portfolio/videosphere-10.png",
           alt: "mobile upload draft file picker",
           caption: "Mobile Upload Draft File Picker",
+        },
+        {
+          src: "/portfolio/videosphere-11.png",
+          alt: "translation in Chinese/Mandarin",
+          caption: "Live Translation (Chinese/Mandarin)",
+        },
+        {
+          src: "/portfolio/videosphere-12.png",
+          alt: "translation in Chinese/Mandarin pinning new captions mid screen",
+          caption: "Caption Pinning Mid-Screen",
+        },
+        {
+          src: "/portfolio/videosphere-13.png",
+          alt: "translation in Chinese/Mandarin showing speech vs music detection",
+          caption: "Speech vs Music Detection",
         },
       ],
     },
