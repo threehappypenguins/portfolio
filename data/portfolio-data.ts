@@ -30,6 +30,55 @@ export interface TimelineItem {
 
 export const timelineData: TimelineItem[] = [
   {
+    id: "moodle-plugins",
+    date: "Sep 2026 — Present",
+    title: "Moodle Plugins",
+    richContent: {
+      description:
+        "I write and maintain three free, GPL-licensed Moodle plugins, published on the Moodle Marketplace, for the day-based homeschool courses I run. Day sections and the Homeschool dashboard work as a pair: courses are laid out as numbered days, and a parent or teacher can plan, shift, and review those days across courses. Transparent text is a TinyMCE plugin for lesson content that stays in the document (selectable, and readable by assistive technology) while remaining hidden on the page until it is highlighted.",
+      bullets: [
+        "Day sections (format_daysections) is a course format based on Topics. Sections are named Day 1, Day 2, Day 3, and so on, with a prefix that can be set site-wide or per course. Section 0 stays General, and editing and navigation match Topics, including indentation and linear navigation.",
+        "Homeschool dashboard (local_homeschool) is a parent and teacher dashboard for Day sections courses. It lists children, courses, and timeline reminders; opens a day page that reviews activities across courses for a given day; sets or clears reminder dates in bulk; shifts a schedule forward or back with a preview and undo; and adds or deletes activities from the day view.",
+        "Transparent text (tiny_transparent) marks selected text as transparent in any TinyMCE field, from the toolbar (after italic), the Format menu, or Ctrl+M / Cmd+M. While editing, the text stays faintly visible with a dotted underline. On the site it is fully hidden, including nested links or coloured spans. Access is controlled by the tiny/transparent:use capability.",
+      ],
+      technologies: [
+        "PHP",
+        "Moodle",
+        "TinyMCE",
+        "Mustache",
+        "PHPUnit",
+        "Behat",
+        "GitHub Actions",
+      ],
+      links: [
+        {
+          text: "Day sections on GitHub",
+          url: "https://github.com/threehappypenguins/moodle-format_daysections",
+        },
+        {
+          text: "Day sections on Moodle Marketplace",
+          url: "https://marketplace.moodle.com/plugins/format_daysections",
+        },
+        {
+          text: "Homeschool dashboard on GitHub",
+          url: "https://github.com/threehappypenguins/moodle-local_homeschool",
+        },
+        {
+          text: "Homeschool dashboard on Moodle Marketplace",
+          url: "https://marketplace.moodle.com/plugins/local_homeschool",
+        },
+        {
+          text: "Transparent text on GitHub",
+          url: "https://github.com/threehappypenguins/moodle-tiny_transparent",
+        },
+        {
+          text: "Transparent text on Moodle Marketplace",
+          url: "https://marketplace.moodle.com/plugins/tiny_transparent",
+        },
+      ],
+    },
+  },
+  {
     id: "sprint-scholars",
     date: "Mar 2026 — Present",
     title: "SPRINT Scholars Award (ABStrack)",
